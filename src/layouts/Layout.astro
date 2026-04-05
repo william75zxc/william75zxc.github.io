@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import { cv } from '../data/cv';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Jing-Jhong (William) Chen - Ph.D. Student in Biomedical Engineering" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | {cv.name}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header class="glass sticky">
+			<nav class="container nav-wrapper">
+				<a href="/" class="logo">{cv.name}</a>
+				<ul class="nav-links">
+					<li><a href="/">Home</a></li>
+					<li><a href="/publications">Publications</a></li>
+					<li><a href="/experience">Experience</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer class="container footer">
+			<p>&copy; {new Date().getFullYear()} {cv.name}. Built with Astro.</p>
+		</footer>
+		<style>
+			.sticky {
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				margin-bottom: 2rem;
+        border-radius: 0 0 1rem 1rem;
+			}
+			.nav-wrapper {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				height: 4rem;
+			}
+			.logo {
+				font-size: 1.25rem;
+				font-weight: 800;
+				color: var(--accent-sky);
+				font-family: var(--font-heading);
+			}
+			.nav-links {
+				display: flex;
+				gap: 2rem;
+				list-style: none;
+			}
+			.footer {
+				padding: 4rem 1.5rem;
+				text-align: center;
+				color: var(--text-secondary);
+				border-top: 1px solid var(--border-color);
+			}
+		</style>
+	</body>
+</html>

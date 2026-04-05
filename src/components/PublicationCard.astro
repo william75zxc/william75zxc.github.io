@@ -1,0 +1,106 @@
+---
+interface Props {
+	title: string;
+	authors: string[];
+	venue: string;
+	year: number;
+	type?: string;
+	status?: string;
+	role?: string;
+	indexed?: string;
+}
+
+const { title, authors, venue, year, type, status, role, indexed } = Astro.props;
+
+// Function to highlight the user's name
+const highlightAuthor = (author: string) => {
+  const name = "Jing-Jhong Chen";
+  if (author.includes(name) || author.includes("陈敬忠")) {
+    return `<strong>${author}</strong>`;
+  }
+  return author;
+};
+---
+
+<div class="publication-card glass">
+  <div class="meta">
+    {type && <span class="badge type">{type}</span>}
+    {status && <span class="badge status">{status}</span>}
+    {indexed && <span class="badge indexed">{indexed}</span>}
+    <span class="year">{year}</span>
+  </div>
+  <h3 class="title">{title}</h3>
+  <p class="authors" set:html={authors.map(highlightAuthor).join(", ")} />
+  <p class="venue">{venue}</p>
+  {role && <p class="role">Role: {role}</p>}
+</div>
+
+<style>
+  .publication-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .publication-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-sky);
+  }
+
+  .meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .type { background: rgba(56, 189, 248, 0.2); color: var(--accent-sky); }
+  .status { background: rgba(13, 148, 136, 0.2); color: var(--accent-teal); }
+  .indexed { background: rgba(248, 250, 252, 0.1); color: var(--text-primary); border: 1px solid var(--border-color); }
+
+  .year {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-left: auto;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  .authors {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  .venue {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--accent-sky);
+  }
+
+  .role {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  :global(strong) {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+</style>

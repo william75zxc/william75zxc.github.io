@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+import { cv } from '../data/cv';
+
+const { journals, conferences } = cv.publications;
+---
+
+<Layout title="Publications">
+	<section class="container">
+		<h1 class="section-title">Selected Publications & Presentations</h1>
+		
+		<div class="category">
+			<h2 class="sub-title">Journal Papers</h2>
+			<div class="list">
+				{journals.map((pub) => (
+					<PublicationCard {...pub} type="Journal" />
+				))}
+			</div>
+		</div>
+
+		<div class="category">
+			<h2 class="sub-title">Conference Papers & Presentations</h2>
+			<div class="list">
+				{conferences.map((pub) => (
+					<PublicationCard {...pub} />
+				))}
+			</div>
+		</div>
+
+		<div class="category">
+			<h2 class="sub-title">Patents</h2>
+			<div class="list">
+				{cv.patents.map((patent) => (
+					<div class="glass patent-card">
+						<h3>{patent.title}</h3>
+						<p>{patent.status}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.category {
+		margin-bottom: 4rem;
+	}
+	.sub-title {
+		font-size: 1.75rem;
+		margin-bottom: 1.5rem;
+		color: var(--accent-teal);
+		border-left: 4px solid var(--accent-teal);
+		padding-left: 1rem;
+	}
+	.list {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+	.patent-card {
+		padding: 1.5rem;
+		border-left: 4px solid var(--accent-sky);
+	}
+	.patent-card h3 {
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+	}
+	.patent-card p {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+	}
+</style>
