@@ -1,12 +1,14 @@
 export const cv = {
-  name: "Jing-Jhong (William) Chen",
+  name: "Jing-Jhong Chen",
   zhName: "陳敬忠",
   title: "Ph.D. Student in Biomedical Engineering",
+  bio: "I am a Ph.D. student at the Institute of Biophotonics, National Yang Ming Chiao Tung University (NYCU), supervised by Prof. Yu-Te Wu. My research focuses on clinical AI integration, medical image analysis, and the implementation of standards-based workflows (DICOM/FHIR) to improve diagnostic efficiency and precision in radiology and thoracic imaging.",
   email: "abc2001925@gmail.com",
   phone: "+886 975306639",
   location: "New Taipei City, Taiwan",
   birthDate: "2001-09-25",
   age: 24,
+  profileImage: "/images/profile.jpg",
   website: "https://william75zxc.github.io/",
   researchInterests: [
     "Medical image analysis",

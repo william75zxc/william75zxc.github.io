@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { cv } from '../data/cv';
 
-const { name, title, researchInterests, email, location, education } = cv;
+const { name, title, researchInterests, email, location, education, profileImage, bio } = cv;
 ---
 
 <Layout title="Home">
@@ -11,25 +11,15 @@ const { name, title, researchInterests, email, location, education } = cv;
 			<span class="badge">Ph.D. Student @ NYCU</span>
 			<h1 class="hero-title">{name}</h1>
 			<p class="hero-subtitle">{title}</p>
-			<p class="hero-bio">
-				Currently at the <strong>Institute of Biophotonics, National Yang Ming Chiao Tung University</strong>. 
-				Specializing in medical image analysis and automated clinical AI workflows.
-			</p>
+			<p class="hero-bio">{bio}</p>
 			<div class="hero-actions">
 				<a href="mailto:{email}" class="btn btn-primary">Contact Me</a>
 				<a href="/publications" class="btn btn-outline">View Publications</a>
 			</div>
 		</div>
-		<div class="hero-info glass">
-			<div class="info-item">
-				<span class="label">Location</span>
-				<span class="value">{location}</span>
-			</div>
-			<div class="info-item">
-				<span class="label">Email</span>
-				<span class="value">{email}</span>
-			</div>
-		</div>
+    <div class="hero-image-wrapper">
+      <img src={profileImage} alt={name} class="hero-image glass" />
+    </div>
 	</section>
 
 	<section class="research container">
@@ -98,27 +88,19 @@ const { name, title, researchInterests, email, location, education } = cv;
 		border: 1px solid var(--border-color);
 		color: var(--text-primary);
 	}
-	.hero-info {
-		padding: 2rem;
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-	.info-item {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-	.info-item .label {
-		font-size: 0.75rem;
-		text-transform: uppercase;
-		color: var(--text-secondary);
-		letter-spacing: 0.1em;
-	}
-	.info-item .value {
-		font-size: 1.1rem;
-		font-weight: 600;
-	}
+  .hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-image {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border: 4px solid var(--border-color);
+  }
 
 	.interest-grid {
 		display: grid;
