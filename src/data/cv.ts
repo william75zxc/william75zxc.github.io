@@ -78,32 +78,32 @@ export const cv = {
         {
           title: "Standards-Based Clinical AI Integration for Radiology Workflows",
           period: "2024-2025",
-          description: "Led the development of a vendor-neutral, PACS-native clinical AI system built upon international IHE standards, integrating DICOM, DICOMweb, and native DICOM SEG/SR/GSPS outputs to support fully automated background inference, standardized result return, and seamless clinical deployment within radiology workflows. The system incorporated modules for brain tumor MRI analysis, contrast-free inference, and structured report generation, enabling an end-to-end automated pipeline from image ingestion and AI analysis to PACS write-back. In real-world validation at a medical center, the system achieved a mean end-to-end latency of 89.82 ± 29.48 seconds and reduced the median reporting turnaround time for lesion-positive brain MRI studies from 5.37 days to 2.23 days. The initial version of the system has received TFDA clearance and is currently under FDA review."
+          description: "Led the development of a vendor-neutral, PACS-native clinical AI system built upon international IHE standards, integrating DICOM, DICOMweb, and native DICOM SEG/SR/GSPS outputs to support fully automated background inference, standardized result return, and seamless clinical deployment within radiology workflows. The system achieved a mean end-to-end latency of 89.82 ± 29.48 seconds and reduced the median reporting turnaround time for lesion-positive brain MRI studies from 5.37 days to 2.23 days. The initial version has received TFDA clearance and is currently under FDA review."
         },
         {
           title: "FHIR-Driven Clinical Decision Support and Report Translation",
           period: "2025-Present",
-          description: "Transformed structured AI outputs into interoperable FHIR resources and integrated RAG-enhanced large language models for clinically contextualized summarization, urgent case notification, and translation of AI-derived structured reports into physician-ready narratives. Improved the actionability of AI-assisted communication, reduced downstream response delays, and supported timely intervention within critical therapeutic windows; currently under clinical testing and effectiveness evaluation at a tertiary medical center."
+          description: "Transformed structured AI outputs into interoperable FHIR resources and integrated RAG-enhanced large language models for clinically contextualized summarization, urgent case notification, and translation of AI-derived structured reports into physician-ready narratives. Improved the actionability of AI-assisted communication and supported timely intervention within critical therapeutic windows; currently under clinical testing at a tertiary medical center."
         },
         {
           title: "Brain Tumor MRI Analysis and Generative Modeling",
           period: "2024-2025",
-          description: "Developed multimodal MRI-based deep learning frameworks for brain tumor detection and segmentation, leveraging GAN and diffusion models to synthesize realistic small tumor lesions and incorporating the generated data into segmentation model evaluation and comparative performance analysis. This strategy increased sensitivity by 16 points for 4–6 mm lesions."
+          description: "Developed multimodal MRI-based deep learning frameworks for brain tumor detection and segmentation, leveraging GAN and diffusion models to synthesize realistic small tumor lesions. This strategy increased sensitivity by 16 points for 4–6 mm lesions during comparative performance analysis."
         },
         {
           title: "Non-Contrast MRI Translation and Tumor Classification",
           period: "2024-2025",
-          description: "Leveraged GAN- and diffusion-based models to synthesize contrast-enhanced T1-weighted (T1C) MRI from non-contrast T1-weighted inputs, and evaluated whether the generated images improved tumor detection and segmentation performance. Further incorporated the synthesized contrast information into downstream classification pipelines to assess its utility for brain tumor characterization."
+          description: "Leveraged GAN- and diffusion-based models to synthesize contrast-enhanced T1-weighted (T1C) MRI from non-contrast T1-weighted inputs. Evaluated whether the generated images improved tumor detection and incorporated synthesized contrast information into downstream classification pipelines to assess its utility for brain tumor characterization."
         },
         {
           title: "Multimodal Clinical Imaging Analysis with LLMs and VLMs",
           period: "2025-Present",
-          description: "Developed multimodal AI frameworks for lung CT and brain tumor imaging interpretation by integrating large language models and vision-language models for structured report generation and clinically grounded decision support in pulmonary nodules, lung cancer screening, pneumonia, chronic obstructive pulmonary disease, pulmonary embolism, and brain tumors, enhancing the actionability of AI outputs in real-world clinical imaging workflows."
+          description: "Developed multimodal AI frameworks for lung CT and brain tumor imaging interpretation by integrating LLMs and VLMs for structured report generation and clinically grounded decision support (pulmonary nodules, pneumonia, COPD, and brain tumors), enhancing AI output actionability."
         },
         {
           title: "Deep Learning for MRI Sequence Classification",
           period: "2024-2025",
-          description: "Developed deep learning models for automatic classification of multiple MRI sequence types, including contrast-enhanced T1-weighted (T1+C), T2-weighted (T2), and other clinically relevant sequences. Enabled reliable sequence identification and selection for fully automated model inference workflows, improving preprocessing standardization and supporting end-to-end deployment of MRI-based AI systems."
+          description: "Developed deep learning models for automatic classification of multiple MRI sequence types (T1+C, T2, etc.). Enabled reliable sequence identification for fully automated model inference workflows, improving preprocessing standardization and supporting end-to-end deployment."
         }
       ]
     }
@@ -140,54 +140,56 @@ export const cv = {
   ],
   publications: {
     journals: [
-      { id: "j1", title: "A Standards-Based, PACS-Native AI Integration Architecture for Background Inference in Radiology Reporting Workflows", venue: "J Med Syst (IF 5.52)", status: "Under Peer Review", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
-      { id: "j2", title: "DBI-MambaUNet with Size-Aware Focal Tversky Loss: A Holistic Framework for Multi-Subtype Brain Tumor Micro-Lesion Segmentation in Stereotactic Radiosurgery", venue: "MedIA (IF 11.8)", status: "Under Review", year: 2024, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] }
+      { id: "j1", title: "A Standards-Based, PACS-Native AI Integration Architecture for Background Inference in Radiology Reporting Workflows", venue: "Journal of Medical Systems (IF 5.52)", status: "Under Peer Review", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
+      { id: "j2", title: "DBI-MambaUNet with Size-Aware Focal Tversky Loss: A Holistic Framework for Multi-Subtype Brain Tumor Micro-Lesion Segmentation in Stereotactic Radiosurgery", venue: "Medical Image Analysis (IF 11.8)", status: "Under Review", year: 2024, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] }
     ],
     conferences: [
-      { id: "c1", title: "A Method for Rapidly Integrating Artificial Intelligence Models into Existing PACS via DICOMweb", venue: "SIIM 2024", type: "Poster", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
-      { id: "c2", title: "Real-time and Continuous AI Inference Workflow with PACS Integration (Indexed by IEEE)", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "1st Author", authors: ["Jing-Jhong Chen"] },
-      { id: "c3", title: "Lightweight 3D IDC-MambaUNet for Multi-Modal MRI Brain Tumor Segmentation Using Multi-Resolution Ensemble (Indexed by IEEE)", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "2nd Author", authors: ["Jing-Jhong Chen (2nd Author)"] },
-      { id: "c4", title: "Lesion-Wise False-Positive Reduction for Brain Tumor Candidate Masks in Multi-Modal MRI via Mask-Gated 2.5D Spatiotemporal Classification", venue: "AMLDS 2026", type: "Accepted", year: 2026, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] },
-      { id: "c5", title: "Design and Implementation of an Open-Source Integrated Digital Pathology Workflow with DICOM WSI Management and AI-Assisted Analysis", venue: "ECDP 2026", type: "Submitted", year: 2026, role: "4th Author", authors: ["Jing-Jhong Chen (4th Author)"] }
+      { id: "c1", title: "A Method for Rapidly Integrating Artificial Intelligence Models into Existing PACS via DICOMweb", venue: "Society for Imaging Informatics in Medicine Annual Meeting (SIIM) 2024", type: "Poster Presentation", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
+      { id: "c2", title: "Real-time and Continuous AI Inference Workflow with PACS Integration (Indexed by IEEE)", venue: "IEEE International Conference on AI, Machine Learning, and Data Science (AMLDS) 2025", type: "Oral Presentation", year: 2025, role: "1st Author", authors: ["Jing-Jhong Chen"] },
+      { id: "c3", title: "Lightweight 3D IDC-MambaUNet for Multi-Modal MRI Brain Tumor Segmentation Using Multi-Resolution Ensemble (Indexed by IEEE)", venue: "IEEE International Conference on AI, Machine Learning, and Data Science (AMLDS) 2025", type: "Oral Presentation", year: 2025, role: "2nd Author", authors: ["Jing-Jhong Chen (2nd Author)"] },
+      { id: "c4", title: "Lesion-Wise False-Positive Reduction for Brain Tumor Candidate Masks in Multi-Modal MRI via Mask-Gated 2.5D Spatiotemporal Classification", venue: "IEEE International Conference on AI, Machine Learning, and Data Science (AMLDS) 2026", type: "Accepted", year: 2026, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] },
+      { id: "c5", title: "Design and Implementation of an Open-Source Integrated Digital Pathology Workflow with DICOM WSI Management and AI-Assisted Analysis", venue: "European Congress on Digital Pathology (ECDP)", type: "Submitted", year: 2026, role: "4th Author", authors: ["Jing-Jhong Chen (4th Author)"] }
     ],
     presentations: [
-      { event: "SIIM 2024, Washington, DC, USA", role: "Poster Presentation, 1st Author" },
-      { event: "AMLDS 2025, Tokyo, Japan", role: "Oral Presentation, 1st Author & 2nd Author" }
+      { id: "p1", event: "2024 Society for Imaging Informatics in Medicine Annual Meeting (SIIM 2024)", location: "Washington, DC, USA", type: "Poster Presentation", role: "1st Author", year: 2024 },
+      { id: "p2", event: "2025 IEEE International Conference on AI, Machine Learning, and Data Science (AMLDS 2025)", location: "Tokyo, Japan", type: "Oral Presentation", role: "1st Author", year: 2025 },
+      { id: "p3", event: "2025 IEEE International Conference on AI, Machine Learning, and Data Science (AMLDS 2025)", location: "Tokyo, Japan", type: "Oral Presentation", role: "2nd Author", year: 2025 }
     ]
   },
   patents: [
-    { title: "DICOM Metadata-Driven Decision Platform and Method for Automated Medical Imaging Inference", status: "Granted 2025 (Taiwan); U.S. Pending" },
-    { title: "Automated Worklist Generation and Multi-Model Inference Work Order Data Structure for Medical Imaging AI", status: "Taiwan and U.S. Pending" }
+    { title: "DICOM Metadata-Driven Decision Platform and Method for Automated Medical Imaging Inference", status: "Taiwan invention patent granted in 2025; corresponding U.S. patent application pending." },
+    { title: "Automated Worklist Generation and Multi-Model Inference Work Order Data Structure for Medical Imaging AI", status: "Taiwan and U.S. patent applications pending." }
   ],
   honors: [
     {
       category: "Awards", items: [
-        "Research & Creative Award, 2023 NSTC Undergraduate Research Project (Project: Cloud-Based BI-RADS Classification Model for Breast Ultrasound in Primary Care Clinics)",
-        "Third Prize, Project Competition, National Taipei University of Nursing and Health Sciences",
-        "Third Prize, Smart Technology Division, 2021 National Health Technology Innovation Competition (MR Glasses Project)",
-        "Shortlisted, Smart Innovation Award with the AItewan AI-Assisted Brain Tumor Analysis System"
+        "Research and Creative Award, 2023 NSTC Undergraduate Research Project: Cloud-Based BI-RADS Classification Model for Breast Ultrasound in Primary Care Clinics.",
+        "Third Prize, Project Competition, National Taipei University of Nursing and Health Sciences.",
+        "Third Prize, Smart Technology Division, 2021 National Health Technology Innovation and Creativity Competition (MR Glasses Project).",
+        "Shortlisted for the Smart Innovation Award with the “AItewan” AI-Assisted Brain Tumor Analysis System."
       ]
     },
     {
       category: "Selected Achievements", items: [
-        "Co-developed AItewan DeepBT Detector Plus (TFDA clearance; FDA pending)",
-        "Independently developed Liger MedAI Management Platform (TFDA in progress)",
-        "Clinical Deployment: Taipei VGH, Taichung VGH, Shin Kong Hospital",
+        "Co-developed “AItewan” DeepBT Detector Plus (TFDA medical device clearance secured).",
+        "Independently developed the “AItewan” Liger MedAI Management Platform (TFDA application in progress).",
+        "Co-developed “AItewan” DeepBT Detector Plus (FDA medical device application in progress).",
+        "Deployed “AItewan” DeepBT Detector Plus at Taipei Veterans General Hospital, Taichung Veterans General Hospital, and Shin Kong Wu Ho-Su Memorial Hospital.",
         { 
           text: "Accepted for presentation at CYBERSEC 2026: “AI Software Medical Device Cybersecurity in Practice.”", 
           url: "https://cybersec.ithome.com.tw/2026/session/4284",
           icon: "shield"
         },
-        "Selected: MITW Taiwan Medical Imaging Datathon 2024 (Track 4 & 8)",
-        "Passed SAS Campus Hackathon Preliminary Round"
+        "Selected for Track 4 (Medical Imaging) and Track 8 (Insurance Applications) at MITW Taiwan Medical Imaging Datathon 2024.",
+        "Passed the preliminary round of the SAS Campus Hackathon."
       ]
     }
   ],
   certifications: [
     "Certified Medical Information Manager",
     "APMP Project Management Certification",
-    "Certified Assistant Specialist in Smart Healthcare",
-    "Completion, Medical Informatics Program, NTUNHS"
+    "Certified Assistant Specialist in Smart Healthcare and Enterprise e-Transformation",
+    "Certificate of Completion, Medical Informatics Program, National Taipei University of Nursing and Health Sciences"
   ],
   academicService: [
     "Teaching Assistant, DICOM and FHIR Training Program",
@@ -199,10 +201,11 @@ export const cv = {
   ],
   skills: {
     languages: ["Python", "JavaScript", "Node.js", "React.js", "PyTorch", "Git", "Docker", "Linux"],
-    domains: ["Medical Imaging AI", "Computer Vision", "3D Segmentation", "Multimodal Learning"],
-    technologies: ["GANs & Diffusion Models", "LLMs & RAG", "VLMs"],
-    standards: ["DICOM", "DICOMweb", "FHIR", "IHE Standards"],
-    evaluation: ["Lesion-wise sensitivity/precision", "F1 score", "False positives per scan"],
-    naturalLanguages: ["Mandarin Chinese (Native)", "English (Professional)"]
+    domains: ["Medical imaging AI", "Computer vision", "Deep learning", "Multimodal learning", "3D segmentation"],
+    technologies: ["Generative modeling", "GANs", "Diffusion models", "LLMs", "RAG", "VLMs"],
+    standards: ["Clinical AI integration (DICOM, DICOMweb, FHIR)", "IHE Standards", "Structured reporting"],
+    development: ["AI platform architecture", "Multi-model deployment", "Cloud-based AI services"],
+    evaluation: ["Model evaluation (Sensitivity, Precision, F1, False positives per scan)", "Clinically oriented workflow analysis"],
+    naturalLanguages: ["Mandarin Chinese (native)", "English (professional working proficiency)"]
   }
 };

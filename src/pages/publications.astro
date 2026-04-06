@@ -1,144 +1,182 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PublicationCard from '../components/PublicationCard.astro';
 import { cv } from '../data/cv';
 
-const { journals, conferences } = cv.publications;
+const { journals, conferences, presentations } = cv.publications;
 ---
 
-<Layout title="Publications">
-	<section class="container" style="max-width: 900px; margin: 0 auto; padding-top: 4rem; padding-bottom: 6rem;">
+<Layout title="Publications & Presentations">
+	<section class="container" style="max-width: 1000px; margin: 0 auto; padding-top: 4rem; padding-bottom: 6rem;">
     <div style="margin-bottom: 4rem;">
-		  <h1 class="section-title" style="margin-bottom: 1rem; font-size: 3rem;">Publications</h1>
-      <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">A complete record of academic publications, including journal articles currently under review and conference proceedings.</p>
+		  <h1 class="section-title" style="margin-bottom: 1rem; font-size: 3rem;">Publications & Talks</h1>
+      <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.6; max-width: 800px;">
+        A record of academic contributions, featuring journal papers in high-impact venues (MedIA, JMS) and oral presentations at international medical imaging informatics conferences.
+      </p>
     </div>
 		
 		<div class="category">
 			<h2 class="sub-title">Journal Papers</h2>
 			<div class="list">
 				{journals.map((pub) => (
-					<div class="paper-card glass publication-focused">
-  <h3 class="title">{pub.title}</h3>
-  
-  <div class="meta-row">
-    <span class="venue">{pub.venue}</span>
-    <span class="year px-2 py-1 ml-2 rounded text-xs bg-slate-800 border border-slate-700">{pub.year}</span>
-  </div>
-  
-  <div class="status-row">
-    {pub.role && <span class="badge role-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> {pub.role}</span>}
-    {pub.status && <span class={`badge ${pub.status.includes('Review') || pub.status.includes('Pending') || pub.status.includes('Submitted') ? 'status-review' : 'status-accepted'}`}><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> {pub.status}</span>}
-    <span class="badge type-badge">Journal</span>
-  </div>
-</div>
+					<div class="paper-card flagship-card px-8 pt-4 pb-8 mb-8">
+            <div class="status-row mb-3">
+              <span class={`badge ${pub.status.includes('Review') ? 'status-review' : 'status-accepted'}`}>
+                {pub.status}
+              </span>
+              <span class="badge type-badge">Journal</span>
+              {pub.role && <span class="badge role-badge">{pub.role}</span>}
+            </div>
+            <h3 class="title mb-3">{pub.title}</h3>
+            <div class="meta-row">
+              <span class="venue">{pub.venue}</span>
+              <span class="year px-2 py-1 ml-2 rounded text-xs bg-slate-800 border border-slate-700">{pub.year}</span>
+            </div>
+          </div>
 				))}
 			</div>
 		</div>
 
 		<div class="category">
-			<h2 class="sub-title">Conference Papers & Presentations</h2>
+			<h2 class="sub-title">Conference Proceedings</h2>
 			<div class="list">
 				{conferences.map((pub) => (
-					<div class="paper-card glass publication-focused">
-  <h3 class="title">{pub.title}</h3>
-  
-  <div class="meta-row">
-    <span class="venue">{pub.venue}</span>
-    <span class="year px-2 py-1 ml-2 rounded text-xs bg-slate-800 border border-slate-700">{pub.year}</span>
-  </div>
-  
-  <div class="status-row">
-    {pub.role && <span class="badge role-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> {pub.role}</span>}
-    {pub.status && <span class={`badge ${pub.status.includes('Review') || pub.status.includes('Pending') || pub.status.includes('Submitted') ? 'status-review' : 'status-accepted'}`}><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> {pub.status}</span>}
-    <span class="badge type-badge">Conference</span>
-  </div>
-</div>
+					<div class="paper-card flagship-card px-8 pt-4 pb-8 mb-8">
+            <div class="status-row mb-3">
+              {pub.type.includes('Oral') ? (
+                <span class="badge oral-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+                  Oral Presentation
+                </span>
+              ) : pub.type.includes('Poster') ? (
+                <span class="badge poster-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                  Poster Presentation
+                </span>
+              ) : (
+                <span class="badge type-badge">{pub.type}</span>
+              )}
+              {pub.venue.includes('IEEE') && <span class="badge ieee-badge">IEEE Indexed</span>}
+              {pub.role && <span class="badge role-badge">{pub.role}</span>}
+            </div>
+            <h3 class="title mb-3">{pub.title}</h3>
+            <div class="meta-row">
+              <span class="venue">{pub.venue}</span>
+              <span class="year px-2 py-1 ml-2 rounded text-xs bg-slate-800 border border-slate-700">{pub.year}</span>
+            </div>
+          </div>
 				))}
 			</div>
 		</div>
+
+    <div class="category">
+			<h2 class="sub-title">Selected Presentations</h2>
+			<div class="list">
+				{presentations.map((pres) => (
+					<div class="paper-card flagship-card px-8 pt-4 pb-8 mb-8">
+            <div class="status-row mb-3">
+              {pres.type.includes('Oral') ? (
+                <span class="badge oral-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+                  Oral Presentation
+                </span>
+              ) : pres.type.includes('Poster') ? (
+                <span class="badge poster-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                  Poster Presentation
+                </span>
+              ) : (
+                <span class="badge type-badge">{pres.type}</span>
+              )}
+              {pres.role && <span class="badge role-badge">{pres.role}</span>}
+            </div>
+            <h3 class="title mb-3">{pres.event}</h3>
+            <div class="meta-row">
+              <span class="venue flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                {pres.location}
+              </span>
+              <span class="year px-2 py-1 ml-2 rounded text-xs bg-slate-800 border border-slate-700">{pres.year}</span>
+            </div>
+          </div>
+				))}
+			</div>
+		</div>
+
+    <div style="margin-top: 4rem; text-align: center;">
+      <a href="/" class="btn btn-outline" style="padding: 1rem 2rem;">← Back to Home</a>
+    </div>
 	</section>
 </Layout>
 
 <style>
-  .publication-focused {
-    padding: 2rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    margin-bottom: 1.5rem;
+  .flagship-card {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 1rem;
   }
-
+  
   .title {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: var(--text-primary);
     line-height: 1.5;
+    margin-bottom: 1.25rem !important;
   }
 
   .meta-row {
     font-size: 1.05rem;
     color: var(--accent-sky);
-    font-weight: 600;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-weight: 600;
   }
 
-  .year {
-    font-size: 0.85rem;
+  .author-role {
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    margin-left: 0.5rem;
+    font-weight: 400;
+    font-style: italic;
+    background: rgba(255,255,255,0.05);
+    padding: 0.3rem 0.75rem;
+    border-radius: 1rem;
   }
 
   .status-row {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 0.5rem;
   }
 
   .badge {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
     border-radius: 2rem;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
   }
 
-  .role-badge { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .oral-badge { background: rgba(250, 204, 21, 0.1); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.2); backdrop-filter: blur(4px); }
+  .poster-badge { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+  .ieee-badge { background: rgba(0, 102, 153, 0.2); color: #00a0e9; border: 1px solid rgba(0, 160, 233, 0.3); }
   .status-review { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
   .status-accepted { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
-  .type-badge { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); }
+  .type-badge { background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); }
 
 	.category {
-		margin-bottom: 4rem;
+		margin-bottom: 5rem;
 	}
 	.sub-title {
-		font-size: 1.75rem;
-		margin-bottom: 1.5rem;
+		font-size: 2rem;
+		margin-bottom: 2rem;
 		color: var(--accent-teal);
-		border-left: 4px solid var(--accent-teal);
-		padding-left: 1rem;
-	}
-	.list {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 1.5rem;
-	}
-	.patent-card {
-		padding: 1.5rem;
-		border-left: 4px solid var(--accent-sky);
-	}
-	.patent-card h3 {
-		font-size: 1.2rem;
-		margin-bottom: 0.5rem;
-	}
-	.patent-card p {
-		color: var(--text-secondary);
-		font-size: 0.9rem;
+		border-left: 5px solid var(--accent-teal);
+		padding-left: 1.25rem;
+    font-weight: 800;
 	}
 </style>

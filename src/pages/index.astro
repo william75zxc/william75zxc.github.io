@@ -144,23 +144,45 @@ const { tagline, bio, heroText, highlights, researchVision, experience, addition
         </section>
 
         <section class="publications-summary">
-          <h2 class="section-title">Selected Publications</h2>
+          <h2 class="section-title">Publications & Presentations</h2>
           <div class="list">
-            <h3 class="item-title mb-spacing">Journal Papers</h3>
+            <h3 class="item-title mb-spacing" style="color: var(--accent-sky); margin-bottom: 1rem;">Journal Papers</h3>
             {publications.journals.map((pub) => (
-              <div class="paper-card glass">
-                <h3 class="paper-title">{pub.title}</h3>
-                <p class="paper-meta">{pub.venue} • {pub.status} • {pub.role}</p>
+              <div class="award-card glass mb-4" style="border-left: 4px solid var(--accent-sky);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+                  <div>
+                    <h3 class="paper-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4;">{pub.title}</h3>
+                    <p class="paper-meta" style="font-size: 0.9rem; color: var(--accent-sky); font-weight: 600; margin-top: 0.5rem;">{pub.venue} • {pub.status}</p>
+                  </div>
+                  <span class="badge" style="background: rgba(56, 189, 248, 0.1); color: var(--accent-sky); border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; text-transform: uppercase;">Journal</span>
+                </div>
               </div>
             ))}
             
-            <h3 class="item-title mt-spacing mb-spacing">Conference Papers</h3>
+            <h3 class="item-title mb-spacing" style="color: var(--accent-gold); margin-top: 2rem; margin-bottom: 1rem;">Conference Proceedings</h3>
             {publications.conferences.map((pub) => (
-              <div class="paper-card glass">
-                <h3 class="paper-title">{pub.title}</h3>
-                <p class="paper-meta">{pub.venue} • {pub.type} • {pub.role}</p>
+              <div class="award-card glass mb-4" style={`border-left: 4px solid ${pub.type.includes('Oral') ? 'var(--accent-gold)' : pub.type.includes('Poster') ? '#c084fc' : 'rgba(255,255,255,0.2)'};`}>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+                  <div>
+                    <h3 class="paper-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4;">{pub.title}</h3>
+                    <p class="paper-meta" style={`font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; color: ${pub.type.includes('Oral') ? 'var(--accent-gold)' : 'var(--text-secondary)'};`}>
+                      {pub.venue} • {pub.type}
+                    </p>
+                  </div>
+                  {pub.type.includes('Oral') ? (
+                    <span class="badge" style="background: linear-gradient(135deg, gold, #f59e0b); color: #000; font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; font-weight: 800; text-transform: uppercase;">Oral</span>
+                  ) : pub.type.includes('Poster') ? (
+                    <span class="badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; font-weight: 800; text-transform: uppercase;">Poster</span>
+                  ) : (
+                    <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; text-transform: uppercase;">{pub.type}</span>
+                  )}
+                </div>
               </div>
             ))}
+
+            <div style="margin-top: 2.5rem; text-align: center;">
+              <a href="/publications" class="btn btn-outline" style="border-width: 2px; padding: 0.8rem 2.5rem; font-weight: 700; border-color: var(--accent-sky); color: var(--accent-sky);">View Dedicated Publications Page →</a>
+            </div>
       </div>
     </section>
     </main>
