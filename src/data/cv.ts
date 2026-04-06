@@ -40,17 +40,17 @@ export const cv = {
     },
     {
       title: "8 Publications",
-      description: "Authored 2 journal papers (including MedIA IF=11.8 under review) and 6 conference papers/presentations (mostly Oral).",
+      description: "Authored 2 journal papers (including Medical Image Analysis (MedIA) IF=11.8 under review) and 6 conference papers/presentations (mostly Oral).",
       icon: "BookOpen"
     },
     {
       title: "AI System Developer",
-      description: "Independently developed Liger MedAI Management Platform; deployed brain tumor AI models at multiple medical centers including Taipei VGH.",
+      description: "Independently developed Liger MedAI Management Platform; deployed brain tumor AI models at multiple medical centers including Taipei Veterans General Hospital (Taipei VGH).",
       icon: "Cpu"
     },
     {
       title: "Research Awards",
-      description: "Received the NSTC Research and Creative Award (2023) and shortlisted for the Smart Innovation Award.",
+      description: "Received the National Science and Technology Council (NSTC) Research and Creative Award (2023) and shortlisted for the Smart Innovation Award.",
       icon: "Trophy"
     }
   ],
@@ -62,7 +62,7 @@ export const cv = {
       degree: "Direct Pursuit of Ph.D. Program, Institute of Biophotonics"
     },
     {
-      institution: "National Taipei University of Nursing and Health Sciences",
+      institution: "National Taipei University of Nursing and Health Sciences (NTUNHS)",
       location: "Taiwan",
       period: "2020–2024",
       degree: "B.B.A. in Information Management"
@@ -119,15 +119,15 @@ export const cv = {
   ],
   publications: {
     journals: [
-      { id: "j1", title: "A Standards-Based, PACS-Native AI Integration Architecture...", venue: "J Med Syst (IF 5.52)", status: "Under Peer Review", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
-      { id: "j2", title: "DBI-MambaUNet with Size-Aware Focal Tversky Loss...", venue: "MedIA (IF 11.8)", status: "Under Review", year: 2024, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] }
+      { id: "j1", title: "A Standards-Based, PACS-Native AI Integration Architecture for Background Inference in Radiology Reporting Workflows", venue: "J Med Syst (IF 5.52)", status: "Under Peer Review", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
+      { id: "j2", title: "DBI-MambaUNet with Size-Aware Focal Tversky Loss: A Holistic Framework for Multi-Subtype Brain Tumor Micro-Lesion Segmentation in Stereotactic Radiosurgery", venue: "MedIA (IF 11.8)", status: "Under Review", year: 2024, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] }
     ],
     conferences: [
-      { id: "c1", title: "Rapidly Integrating AI Models into PACS via DICOMweb", venue: "SIIM 2024", type: "Poster", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
-      { id: "c2", title: "Real-time AI Inference Workflow with PACS Integration", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "1st Author", authors: ["Jing-Jhong Chen"] },
-      { id: "c3", title: "Lightweight 3D IDC-MambaUNet...", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "2nd Author", authors: ["Jing-Jhong Chen (2nd Author)"] },
-      { id: "c4", title: "Lesion-Wise FP Reduction for Brain Tumor MRI...", venue: "AMLDS 2026", type: "Accepted", year: 2026, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] },
-      { id: "c5", title: "Open-Source Integrated Digital Pathology Workflow", venue: "ECDP 2025", type: "Submitted", year: 2025, role: "4th Author", authors: ["Jing-Jhong Chen (4th Author)"] }
+      { id: "c1", title: "A Method for Rapidly Integrating Artificial Intelligence Models into Existing PACS via DICOMweb", venue: "SIIM 2024", type: "Poster", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
+      { id: "c2", title: "Real-time and Continuous AI Inference Workflow with PACS Integration (Indexed by IEEE)", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "1st Author", authors: ["Jing-Jhong Chen"] },
+      { id: "c3", title: "Lightweight 3D IDC-MambaUNet for Multi-Modal MRI Brain Tumor Segmentation Using Multi-Resolution Ensemble (Indexed by IEEE)", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "2nd Author", authors: ["Jing-Jhong Chen (2nd Author)"] },
+      { id: "c4", title: "Lesion-Wise False-Positive Reduction for Brain Tumor Candidate Masks in Multi-Modal MRI via Mask-Gated 2.5D Spatiotemporal Classification", venue: "AMLDS 2026", type: "Accepted", year: 2026, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] },
+      { id: "c5", title: "Design and Implementation of an Open-Source Integrated Digital Pathology Workflow with DICOM WSI Management and AI-Assisted Analysis", venue: "ECDP 2025", type: "Submitted", year: 2025, role: "4th Author", authors: ["Jing-Jhong Chen (4th Author)"] }
     ],
     presentations: [
       { event: "SIIM 2024, Washington, DC, USA", role: "Poster Presentation, 1st Author" },
@@ -135,8 +135,8 @@ export const cv = {
     ]
   },
   patents: [
-    { title: "DICOM Metadata-Driven Decision Platform...", status: "Granted 2025 (Taiwan); U.S. Pending" },
-    { title: "Automated Worklist Generation...", status: "Taiwan and U.S. Pending" }
+    { title: "DICOM Metadata-Driven Decision Platform and Method for Automated Medical Imaging Inference", status: "Granted 2025 (Taiwan); U.S. Pending" },
+    { title: "Automated Worklist Generation and Multi-Model Inference Work Order Data Structure for Medical Imaging AI", status: "Taiwan and U.S. Pending" }
   ],
   honors: [
     {
