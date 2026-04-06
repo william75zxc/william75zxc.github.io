@@ -1,6 +1,5 @@
 export const cv = {
   name: "Jing-Jhong Chen",
-  zhName: "陳敬忠",
   title: "Ph.D. Student in Biomedical Engineering",
   researchVision: "Medical AI • Computer Vision • Standardized DICOM/FHIR • Clinical System Deployment",
   tagline: "Bridging Research and Practice: Engineering Scalable, Standards-Driven Medical AI for Resilient Clinical Workflows and Real-World Impact.",

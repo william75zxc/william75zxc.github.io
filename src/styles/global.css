@@ -163,16 +163,16 @@ a {
 /* Quick Nav Widget - Slim Left Bar */
 .quick-nav-widget {
   position: fixed;
-  left: 2rem;
+  left: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   z-index: 100;
-  padding: 1rem 0.5rem;
-  background: rgba(15, 23, 42, 0.4);
-  backdrop-filter: blur(8px);
+  padding: 1.25rem 0.6rem;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
   border-radius: 9999px;
 }
@@ -262,70 +262,50 @@ a {
   margin-bottom: 0.5rem;
 }
 
-/* Flagship Card Design (Based on User Reference) */
+/* Flagship Card Design - DARK THEME VERSION */
 .flagship-card {
-  background: #f8fafc; /* Professional white/light-gray background for cards */
-  color: #1e293b;
+  background: rgba(30, 41, 59, 0.4);
+  color: var(--text-primary);
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   margin-bottom: 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.flagship-card:hover {
+  border-color: var(--accent-sky);
+  background: rgba(30, 41, 59, 0.6);
+  transform: translateY(-4px);
 }
 
 .flagship-ribbon {
-  background: var(--ribbon-blue);
-  color: white;
-  padding: 0.6rem 1.5rem;
-  font-size: 0.95rem;
+  background: var(--card-bg);
+  color: var(--accent-sky);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.85rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  border-radius: 1.5rem 1.5rem 0 0;
-}
-
-.flagship-body {
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.flagship-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.tag-pill {
-  background: var(--tag-bg);
-  color: var(--tag-text);
-  padding: 0.35rem 1rem;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.tag-flagship {
-  background: #eff6ff;
-  color: #1e40af;
-  border: 1px solid #dbeafe;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .flagship-title {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-primary);
   letter-spacing: -0.025em;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .flagship-description {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 /* Dashboard Summary Cards - Simplified */
