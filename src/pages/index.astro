@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Sidebar from '../components/Sidebar.astro';
+import QuickNav from '../components/QuickNav.astro';
 import HighlightCard from '../components/HighlightCard.astro';
 import { cv } from '../data/cv';
 
@@ -8,15 +9,18 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
 ---
 
 <Layout title="Home">
+  <!-- Independent Floating Navigation Widget -->
+  <QuickNav />
+
 	<div class="page-layout container">
-    <!-- Sidebar Component (Restored with basic info) -->
+    <!-- Sticky Personal Info Sidebar -->
     <Sidebar />
 
 		<main class="main-content">
       <!-- Biography & Highlights -->
-			<section class="section-spacing">
+			<section id="bio" class="section-spacing">
 				<div class="bio-hero glass">
-          <h2 class="tagline">{tagline}</h2>
+          <h1 class="tagline">{tagline}</h1>
           <div class="bio-content">
             <p class="bio-paragraph">
               Focused on translational medical AI, with the goal of developing technologies that can be seamlessly integrated into real clinical workflows. Currently pursuing a Direct Ph.D. in Biomedical Engineering at NYCU.
@@ -36,7 +40,7 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
 
       <!-- Dashboard Sections - Summary Only -->
       
-      <section class="dashboard-section section-spacing">
+      <section id="research" class="dashboard-section section-spacing">
         <h2 class="section-title">Featured Research</h2>
         <div class="summary-list">
           {experience[0].projects.slice(0, 2).map((proj) => (
@@ -52,7 +56,7 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
         <a href="/experience" class="view-more-btn">Explore Full Research Portfolio (6 Projects) →</a>
       </section>
 
-      <section class="dashboard-section section-spacing">
+      <section id="projects" class="dashboard-section section-spacing">
         <h2 class="section-title">Clinical System Deployment</h2>
         <div class="summary-list">
           {additionalProjects.slice(0, 2).map((proj) => (
@@ -69,7 +73,7 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
       </section>
 
       <div class="two-column-grid section-spacing">
-        <section class="honors-summary">
+        <section id="honors" class="honors-summary">
           <h2 class="section-title">Key Distinctions</h2>
           <div class="list">
              <div class="glass p-6 border-l-4 border-gold">
