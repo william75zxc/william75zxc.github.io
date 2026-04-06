@@ -352,6 +352,91 @@ a {
   color: var(--text-secondary);
 }
 
+/* Inner List Items & Cards */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.item-card {
+  padding: 2rem 2.5rem;
+  border-radius: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.item-card.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+}
+
+.item-card:hover {
+  background: var(--card-bg-hover);
+  border-color: var(--text-secondary);
+}
+
+.item-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.item-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.list-node {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.paper-card {
+  padding: 1.5rem 2rem;
+  border-radius: 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.paper-card:hover {
+  background: var(--card-bg-hover);
+  border-color: var(--accent-sky);
+  transform: translateY(-2px);
+}
+
+.paper-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.paper-meta {
+  font-size: 0.9rem;
+  color: var(--accent-sky);
+  font-weight: 500;
+}
+
+.mt-spacing {
+  margin-top: 2.5rem;
+}
+
+.mb-spacing {
+  margin-bottom: 0.5rem;
+}
+
 /* Dashboard Summary Cards - Simplified */
 .summary-card {
   padding: 2.5rem;

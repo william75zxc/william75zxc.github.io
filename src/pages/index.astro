@@ -85,20 +85,20 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
           <h2 class="section-title">Honors & Patents</h2>
           <div class="list">
              {honors.map((group) => (
-                <div class="glass p-6 mb-4">
-                  <h3 class="text-primary font-bold mb-3">{group.category}</h3>
-                  <ul class="honor-items">
+                <div class="item-card glass">
+                  <h3 class="item-title">{group.category}</h3>
+                  <ul class="item-list">
                     {group.items.map((item) => (
-                      <li class={item.includes("National") || item.includes("NSTC") ? "text-gold font-bold mb-2" : "mb-2 text-secondary"}>• {item}</li>
+                      <li class={item.includes("National") || item.includes("NSTC") ? "list-node kw-honor" : "list-node"}>• {item}</li>
                     ))}
                   </ul>
                 </div>
              ))}
-             <div class="glass p-6 mb-4">
-               <h3 class="text-primary font-bold mb-3">Patents</h3>
-               <ul class="honor-items">
+             <div class="item-card glass">
+               <h3 class="item-title">Patents</h3>
+               <ul class="item-list">
                  {cv.patents.map((item) => (
-                   <li class="mb-2 text-secondary">• {item.title} <span class="text-teal">({item.status})</span></li>
+                   <li class="list-node">• {item.title} <span class="kw-clinical">({item.status})</span></li>
                  ))}
                </ul>
              </div>
@@ -108,18 +108,18 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
         <section class="publications-summary">
           <h2 class="section-title">Publications & Presentations</h2>
           <div class="list">
-            <h3 class="text-primary font-bold mb-3">Journal Papers</h3>
+            <h3 class="item-title mb-spacing">Journal Papers</h3>
             {publications.journals.map((pub) => (
-              <div class="summary-card glass mb-4">
-                <h3 class="text-primary text-sm font-bold">{pub.title}</h3>
-                <p class="text-sky text-xs mt-1">{pub.venue} • {pub.status} • {pub.role}</p>
+              <div class="paper-card glass">
+                <h3 class="paper-title">{pub.title}</h3>
+                <p class="paper-meta">{pub.venue} • {pub.status} • {pub.role}</p>
               </div>
             ))}
-            <h3 class="text-primary font-bold mt-6 mb-3">Conference Papers</h3>
+            <h3 class="item-title mt-spacing mb-spacing">Conference Papers</h3>
             {publications.conferences.map((pub) => (
-              <div class="summary-card glass mb-4">
-                <h3 class="text-primary text-sm font-bold">{pub.title}</h3>
-                <p class="text-sky text-xs mt-1">{pub.venue} • {pub.type} • {pub.role}</p>
+              <div class="paper-card glass">
+                <h3 class="paper-title">{pub.title}</h3>
+                <p class="paper-meta">{pub.venue} • {pub.type} • {pub.role}</p>
               </div>
             ))}
           </div>
@@ -133,7 +133,7 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
   .two-column-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2rem;
   }
   @media (max-width: 1200px) {
     .two-column-grid { grid-template-columns: 1fr; }
