@@ -12,7 +12,7 @@ export const cv = {
   age: 24,
   gpa: "4.10 / 4.30",
   profileImage: "/images/profile_suit.png",
-  cvPdf: "/cv.pdf",
+  cvPdf: "/Jing-Jhong_Chen_CV_with_website.pdf",
   website: "https://william75zxc.github.io/",
   researchInterests: [
     "Medical image analysis",
@@ -78,44 +78,65 @@ export const cv = {
         {
           title: "Standards-Based Clinical AI Integration for Radiology Workflows",
           period: "2024-2025",
-          description: "Led the development of a vendor-neutral, PACS-native clinical AI system built upon international IHE standards. Achieved mean end-to-end latency of 89.82s and reduced reporting turnaround from 5.37 to 2.23 days. Received TFDA clearance; FDA review pending."
+          description: "Led the development of a vendor-neutral, PACS-native clinical AI system built upon international IHE standards, integrating DICOM, DICOMweb, and native DICOM SEG/SR/GSPS outputs to support fully automated background inference, standardized result return, and seamless clinical deployment within radiology workflows. The system incorporated modules for brain tumor MRI analysis, contrast-free inference, and structured report generation, enabling an end-to-end automated pipeline from image ingestion and AI analysis to PACS write-back. In real-world validation at a medical center, the system achieved a mean end-to-end latency of 89.82 ± 29.48 seconds and reduced the median reporting turnaround time for lesion-positive brain MRI studies from 5.37 days to 2.23 days. The initial version of the system has received TFDA clearance and is currently under FDA review."
         },
         {
           title: "FHIR-Driven Clinical Decision Support and Report Translation",
           period: "2025-Present",
-          description: "Transforming structured AI outputs into interoperable FHIR resources and integrated RAG-enhanced LLMs for clinically contextualized summarization and report translation."
+          description: "Transformed structured AI outputs into interoperable FHIR resources and integrated RAG-enhanced large language models for clinically contextualized summarization, urgent case notification, and translation of AI-derived structured reports into physician-ready narratives. Improved the actionability of AI-assisted communication, reduced downstream response delays, and supported timely intervention within critical therapeutic windows; currently under clinical testing and effectiveness evaluation at a tertiary medical center."
         },
         {
           title: "Brain Tumor MRI Analysis and Generative Modeling",
           period: "2024-2025",
-          description: "Developed multimodal MRI deep learning frameworks, leveraging GAN and diffusion models to synthesize small tumor lesions. Increased sensitivity by 16 points for 4–6 mm lesions."
+          description: "Developed multimodal MRI-based deep learning frameworks for brain tumor detection and segmentation, leveraging GAN and diffusion models to synthesize realistic small tumor lesions and incorporating the generated data into segmentation model evaluation and comparative performance analysis. This strategy increased sensitivity by 16 points for 4–6 mm lesions."
         },
         {
           title: "Non-Contrast MRI Translation and Tumor Classification",
           period: "2024-2025",
-          description: "Synthesized contrast-enhanced T1C MRI from non-contrast T1 inputs using GANs/Diffusion models to improve downstream classification and detection utility."
+          description: "Leveraged GAN- and diffusion-based models to synthesize contrast-enhanced T1-weighted (T1C) MRI from non-contrast T1-weighted inputs, and evaluated whether the generated images improved tumor detection and segmentation performance. Further incorporated the synthesized contrast information into downstream classification pipelines to assess its utility for brain tumor characterization."
         },
         {
           title: "Multimodal Clinical Imaging Analysis with LLMs and VLMs",
           period: "2025-Present",
-          description: "Developing AI frameworks for lung CT and brain tumor imaging interpretation integrating LLMs and VLMs for structured report generation and decision support."
+          description: "Developed multimodal AI frameworks for lung CT and brain tumor imaging interpretation by integrating large language models and vision-language models for structured report generation and clinically grounded decision support in pulmonary nodules, lung cancer screening, pneumonia, chronic obstructive pulmonary disease, pulmonary embolism, and brain tumors, enhancing the actionability of AI outputs in real-world clinical imaging workflows."
         },
         {
           title: "Deep Learning for MRI Sequence Classification",
           period: "2024-2025",
-          description: "Developed models for automatic classification of multiple MRI sequences (T1+C, T2, etc.) to enable preprocessing standardization and end-to-end deployment."
+          description: "Developed deep learning models for automatic classification of multiple MRI sequence types, including contrast-enhanced T1-weighted (T1+C), T2-weighted (T2), and other clinically relevant sequences. Enabled reliable sequence identification and selection for fully automated model inference workflows, improving preprocessing standardization and supporting end-to-end deployment of MRI-based AI systems."
         }
       ]
     }
   ],
   additionalProjects: [
-    { title: "Vital Signs Home Assistance System", description: "ML-based monitoring for early risk awareness in home care." },
-    { title: "Precision Medicine Genomic Sequencing Platform", description: "Visualization platform (Node.js/React) for clinical review at Taipei VGH." },
-    { title: "Breast Ultrasound Reporting System", description: "Optimized examination workflow with ASUS Cloud for structured report authoring." },
-    { title: "AI Cloud Service Integration", description: "Cloud architecture for multi-model deployment at Zhonglun Clinic." },
-    { title: "Intelligent Clinical Reporting Assistance", description: "Voice-to-text integration with LLMs for consolidated report summaries." },
-    { title: "FHIR-Based Claims Data Exchange", description: "Data transformation system for integrating clinical reports with insurance records." },
-    { title: "Cross-Platform Intracranial Hemorrhage Testing", description: "Integration testing for ICH AI models with Brain Navi Biotechnology." }
+    { 
+      title: "Vital Signs Home Assistance System | Medical Imaging Laboratory", 
+      description: "Developed a machine learning-based home health monitoring system to detect abnormal physiological conditions and provide a user-oriented platform for home-based care and early risk awareness." 
+    },
+    { 
+      title: "Precision Medicine Genomic Sequencing Management Platform | Medical Imaging Laboratory × Taipei Veterans General Hospital", 
+      description: "Developed a precision medicine platform for genomic sequencing data management and visualization using Node.js and React.js, supporting automated comparison of abnormal gene variants and reducing physician workload in clinical review." 
+    },
+    { 
+      title: "Breast Ultrasound Reporting System | Medical Imaging Laboratory × ASUS Cloud", 
+      description: "Developed and optimized a breast ultrasound reporting system in collaboration with ASUS Cloud, establishing a complete imaging examination workflow and enhancing structured report authoring and report management to support more efficient clinical documentation." 
+    },
+    { 
+      title: "AI Cloud Service Integration and Deployment | Medical Imaging Laboratory × Zhonglun Clinic", 
+      description: "Proposed a cloud-based AI platform architecture for multi-model deployment and standardized result integration into clinical workflows, supporting scalable AI service delivery in real-world healthcare settings." 
+    },
+    { 
+      title: "Intelligent Clinical Reporting Assistance System | Medical Imaging Laboratory × Good Liver Clinic × New England Clinic", 
+      description: "Developed an intelligent clinical reporting system that converts voice input into text and integrates large language models to generate consolidated report summaries, enabling direct report drafting and improving the efficiency of clinical documentation." 
+    },
+    { 
+      title: "FHIR-Based Claims Data Exchange and Adjudication System | Medical Imaging Laboratory × Cathay Financial Holdings", 
+      description: "Developed an FHIR-based system for integrating patient clinical reports and insurance records, enabling standardized data transformation and simplifying the patient insurance claims process." 
+    },
+    { 
+      title: "Cross-Platform Integration Testing for Intracranial Hemorrhage AI Models | Medical Imaging Laboratory × Brain Navi Biotechnology", 
+      description: "Performed cross-platform integration testing for an intracranial hemorrhage AI model, verifying the feasibility of the proposed system architecture and its compatibility across different clinical deployment environments." 
+    }
   ],
   publications: {
     journals: [
@@ -173,7 +194,7 @@ export const cv = {
     "Exhibition and Demonstration Coordinator, MITW Taiwan Medical Imaging Datathon 2025"
   ],
   skills: {
-    languages: ["Python", "JavaScript", "Node.js", "React.js", "Git"],
+    languages: ["Python", "JavaScript", "Node.js", "React.js", "PyTorch", "Git", "Docker", "Linux"],
     domains: ["Medical Imaging AI", "Computer Vision", "3D Segmentation", "Multimodal Learning"],
     technologies: ["GANs & Diffusion Models", "LLMs & RAG", "VLMs"],
     standards: ["DICOM", "DICOMweb", "FHIR", "IHE Standards"],

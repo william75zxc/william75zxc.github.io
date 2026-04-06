@@ -36,6 +36,46 @@ const { name, title, researchVision, email, phone, location, birthDate, age, pro
       </div>
     </div>
 
+    <div class="skills-section">
+      <h3 class="label">TECHNICAL SKILLS</h3>
+      
+      <div class="skill-group">
+        <span class="group-label">Tools</span>
+        <div class="skills-cloud">
+          {cv.skills.languages.map((skill) => (
+            <span class="skill-badge skill-lang">{skill}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="group-label">AI & ML</span>
+        <div class="skills-cloud">
+          {cv.skills.technologies.map((skill) => (
+            <span class="skill-badge skill-tech">{skill}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="group-label">Standards</span>
+        <div class="skills-cloud">
+          {cv.skills.standards.map((skill) => (
+            <span class="skill-badge skill-std">{skill}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="skill-group" style="border-bottom: none;">
+        <span class="group-label">Image AI</span>
+        <div class="skills-cloud">
+          {cv.skills.domains.slice(0, 2).map((skill) => (
+            <span class="skill-badge skill-dom">{skill}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+
     <div class="sidebar-actions">
       <a href={cvPdf} download class="btn btn-primary full-width">Download CV</a>
       <a href={`mailto:${email}`} class="btn btn-outline full-width">Contact</a>
@@ -132,6 +172,70 @@ const { name, title, researchVision, email, phone, location, birthDate, age, pro
   .full-width {
     width: 100%;
   }
+  .skills-section {
+    padding-top: 0.5rem;
+  }
+  .skill-group {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.8rem 0;
+  }
+  .group-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+  .skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .skill-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .skill-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Category Colors */
+  .skill-lang {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.2);
+  }
+  .skill-lang:hover { background: rgba(56, 189, 248, 0.2); }
+
+  .skill-tech {
+    color: #f472b6;
+    background: rgba(244, 114, 182, 0.1);
+    border-color: rgba(244, 114, 182, 0.2);
+  }
+  .skill-tech:hover { background: rgba(244, 114, 182, 0.2); }
+
+  .skill-std {
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.1);
+    border-color: rgba(167, 139, 250, 0.2);
+  }
+  .skill-std:hover { background: rgba(167, 139, 250, 0.2); }
+
+  .skill-dom {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+  .skill-dom:hover { background: rgba(16, 185, 129, 0.2); }
 
   @media (max-width: 1024px) {
     .sticky-sidebar { position: relative; top: 0; }

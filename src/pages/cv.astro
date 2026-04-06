@@ -1,0 +1,397 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { cv } from '../data/cv';
+
+const { name, title, email, phone, location, age, website, researchInterests, education, experience, publications, patents, honors, certifications, academicService, additionalProjects, skills } = cv;
+---
+
+<Layout title="Academic CV">
+  <div class="cv-page container">
+    <header class="cv-header glass">
+      <div class="header-main">
+        <h1 class="cv-name text-gradient">{name}</h1>
+        <p class="cv-title">{title}</p>
+        <div class="cv-contact">
+          <span>{email}</span>
+          <span class="dot">•</span>
+          <span>{phone}</span>
+          <span class="dot">•</span>
+          <span>{location}</span>
+          <span class="dot">•</span>
+          <span>{cv.birthDate} (Age {age})</span>
+        </div>
+        <p class="cv-website">CV Website: <a href={website}>{website}</a></p>
+        <div class="cv-actions no-print">
+          <a href={cv.cvPdf} download class="btn btn-primary" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download PDF Version
+          </a>
+          <button onclick={`window.open('${cv.cvPdf}', '_blank')`} class="btn btn-outline" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Print Original PDF
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="cv-section glass">
+      <h2 class="cv-section-title">RESEARCH INTERESTS</h2>
+      <p class="cv-text">{researchInterests.join(", ")}</p>
+    </section>
+
+    <section class="cv-section glass">
+      <h2 class="cv-section-title">EDUCATION</h2>
+      {education.map((edu) => (
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3 class="cv-item-title">{edu.institution}</h3>
+            <span class="cv-item-meta">{edu.location} | {edu.period}</span>
+          </div>
+          <p class="cv-item-sub">{edu.degree}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="cv-section glass">
+      <h2 class="cv-section-title">RESEARCH EXPERIENCE</h2>
+      {experience.map((exp) => (
+        <div class="cv-exp-group">
+          <div class="cv-item-header">
+            <h3 class="cv-item-title">{exp.institution}</h3>
+            <span class="cv-item-meta">{exp.period}</span>
+          </div>
+          <p class="cv-item-sub">{exp.role} | Advisor: {exp.advisor}</p>
+          
+          <div class="cv-exp-list">
+            {exp.projects.map((proj) => (
+              <div class="cv-exp-item">
+                <div class="cv-item-header">
+                  <h4 class="cv-proj-title">{proj.title}</h4>
+                  <span class="cv-item-meta">{proj.period}</span>
+                </div>
+                <p class="cv-text">{proj.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="cv-section glass">
+      <h2 class="cv-section-title">SELECTED PUBLICATIONS & PRESENTATIONS</h2>
+      
+      <div class="cv-sub-section">
+        <h3 class="cv-sub-title">Journal Papers</h3>
+        {publications.journals.map((pub, idx) => (
+          <div class="cv-pub-item">
+            <p class="cv-text">
+              {idx + 1}. <span class="venue-highlight">{pub.venue}</span> — {pub.status} — <strong>{pub.title}</strong>
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="cv-sub-section">
+        <h3 class="cv-sub-title">Conference Papers</h3>
+        {publications.conferences.map((pub, idx) => (
+          <div class="cv-pub-item">
+            <p class="cv-text">
+              {idx + 1}. <span class="venue-highlight">{pub.venue}</span> — {pub.type} — <strong>{pub.title}</strong>
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="cv-sub-section">
+        <h3 class="cv-sub-title">Conference Presentations</h3>
+        {publications.presentations.map((pres, idx) => (
+          <div class="cv-pub-item">
+            <p class="cv-text">
+              {idx + 1}. {pres.event} — {pres.role}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="cv-section glass">
+      <h2 class="cv-section-title">PATENTS</h2>
+      {patents.map((patent, idx) => (
+        <div class="cv-pub-item">
+          <p class="cv-text">
+            {idx + 1}. <strong>{patent.title}</strong> — {patent.status}
+          </p>
+        </div>
+      ))}
+    </section>
+
+    <section class="cv-section glass">
+      <h2 class="cv-section-title">SELECTED HONORS AND AWARDS</h2>
+      {honors.map((group) => (
+        <div class="cv-sub-section">
+          <h3 class="cv-sub-title">{group.category}</h3>
+          <ul class="cv-list">
+            {group.items.map((item) => (
+              <li class="cv-text">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <section class="cv-section glass">
+      <h2 class="cv-section-title">CERTIFICATIONS & ACADEMIC SERVICE</h2>
+      <div class="cv-grid">
+        <div class="cv-sub-section">
+          <h3 class="cv-sub-title">Certifications</h3>
+          <ul class="cv-list">
+            {certifications.map((cert) => (
+              <li class="cv-text">{cert}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="cv-sub-section">
+          <h3 class="cv-sub-title">Teaching & Service</h3>
+          <ul class="cv-list">
+            {academicService.map((service) => (
+              <li class="cv-text">{service}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section glass">
+      <h2 class="cv-section-title">ADDITIONAL PROJECT EXPERIENCE</h2>
+      {additionalProjects.map((proj) => (
+        <div class="cv-exp-item">
+          <h4 class="cv-proj-title">{proj.title}</h4>
+          <p class="cv-text text-sm">{proj.description}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="cv-section glass" style="margin-bottom: 4rem;">
+      <h2 class="cv-section-title">TECHNICAL SKILLS</h2>
+      <div class="cv-skills-grid">
+        <div class="skill-category">
+          <span class="skill-label">LANGUAGES & TOOLS</span>
+          <p class="cv-text">{skills.languages.join(", ")}</p>
+        </div>
+        <div class="skill-category">
+          <span class="skill-label">TECHNOLOGIES & AI</span>
+          <p class="cv-text">{skills.technologies.join(", ")}</p>
+        </div>
+        <div class="skill-category">
+          <span class="skill-label">STANDARDS & EVALUATION</span>
+          <p class="cv-text">{skills.standards.join(", ")}, {skills.evaluation.slice(0, 3).join(", ")}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .cv-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cv-header {
+    padding: 3rem;
+    text-align: center;
+    border-radius: 1.5rem;
+  }
+
+  .cv-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-title {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .cv-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .cv-website {
+    margin-top: 1rem;
+    color: var(--accent-sky);
+    font-weight: 600;
+  }
+
+  .cv-section {
+    padding: 2.5rem 3rem;
+    border-radius: 1.25rem;
+  }
+
+  .cv-section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent-teal);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .cv-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .cv-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.25rem;
+  }
+
+  .cv-item-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .cv-item-meta {
+    font-size: 0.85rem;
+    color: var(--accent-sky);
+    font-weight: 600;
+  }
+
+  .cv-item-sub {
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-exp-group {
+    margin-bottom: 2.5rem;
+  }
+
+  .cv-exp-list {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cv-proj-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-sky);
+  }
+
+  .cv-text {
+    line-height: 1.7;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+  }
+
+  .cv-sub-section {
+    margin-bottom: 2rem;
+  }
+
+  .cv-sub-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .venue-highlight {
+    color: var(--accent-teal);
+    font-weight: 700;
+  }
+
+  .cv-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+
+  .cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .cv-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-category .skill-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .text-sm {
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 768px) {
+    .cv-item-header {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .cv-grid {
+      grid-template-columns: 1fr;
+    }
+    .cv-name {
+      font-size: 2.5rem;
+    }
+    .cv-section {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  @media print {
+    body {
+      background: white !important;
+      color: black !important;
+    }
+    .glass {
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cv-section-title {
+      color: black !important;
+      border-bottom: 2px solid #ccc !important;
+    }
+    .cv-text, .cv-item-title, .cv-proj-title {
+      color: black !important;
+    }
+    .text-gradient {
+      background: none !important;
+      -webkit-text-fill-color: black !important;
+    }
+    .no-print {
+      display: none !important;
+    }
+  }
+</style>
