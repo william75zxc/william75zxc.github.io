@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { cv } from '../data/cv';
+
+const { experience } = cv;
+const researchProjects = experience[0].projects;
+---
+
+<Layout title="Research Portfolio">
+	<section class="container" style="max-width: 1000px; margin: 0 auto; padding-top: 4rem; padding-bottom: 6rem;">
+    <div style="margin-bottom: 4rem;">
+		  <h1 class="section-title" style="margin-bottom: 1rem; font-size: 3rem;">Research Portfolio</h1>
+      <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.6; max-width: 800px;">
+        A comprehensive collection of my Ph.D. research focus areas, centering on translational medical AI, deep learning for medical imaging, and standard-based clinical integration.
+      </p>
+    </div>
+
+		<div class="exp-list">
+			{researchProjects.map((proj) => (
+				<div class="flagship-card" style="margin-bottom: 3rem;">
+					<div class="flagship-ribbon" style="background: var(--accent-sky);">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #000;"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+						Ph.D. Research Flagship
+					</div>
+					<div class="flagship-body p-8">
+						<h3 class="flagship-title mb-6" style="font-size: 1.75rem;">{proj.title}</h3>
+						<p class="flagship-description" style="font-size: 1.1rem; line-height: 1.7; color: rgba(255, 255, 255, 0.85);">{proj.description}</p>
+					</div>
+				</div>
+			))}
+		</div>
+
+    <div style="margin-top: 4rem; text-align: center;">
+      <a href="/" class="btn btn-outline" style="padding: 1rem 2rem;">← Back to Home</a>
+    </div>
+	</section>
+</Layout>
+
+<style>
+  .flagship-card {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(15, 23, 42, 0.6);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  .flagship-card:hover {
+    border-color: var(--accent-sky);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(56, 189, 248, 0.1);
+  }
+  .flagship-ribbon {
+    color: #000; /* High contrast black on bright blue */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+  }
+  .flagship-body {
+    background: rgba(10, 15, 28, 0.5);
+    backdrop-filter: blur(12px);
+  }
+  .flagship-title {
+    color: var(--text-primary);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    letter-spacing: -0.01em;
+  }
+  .flagship-description {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 450;
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+</style>

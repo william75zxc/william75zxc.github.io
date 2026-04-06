@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { cv } from '../data/cv';
+
+const { additionalProjects } = cv;
+---
+
+<Layout title="Clinical Systems">
+	<section class="container" style="max-width: 1000px; margin: 0 auto; padding-top: 4rem; padding-bottom: 6rem;">
+    <div style="margin-bottom: 4rem;">
+		  <h1 class="section-title" style="margin-bottom: 1rem; font-size: 3rem;">Clinical Systems</h1>
+      <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.6; max-width: 800px;">
+        A showcase of clinical system deployment, standard-based medical imaging platforms, and real-world AI implementation in healthcare workflows. My focus is on ensuring clinical reliability and workflow seamlessness.
+      </p>
+    </div>
+
+		<div class="exp-list">
+			{additionalProjects.map((proj) => (
+				<div class="flagship-card" style="margin-bottom: 3rem;">
+					<div class="flagship-ribbon" style="background: linear-gradient(135deg, var(--accent-teal), var(--accent-sky));">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2l-.2.3ZM7 2a3 3 0 1 0-3 3"></path><path d="M5.9 4.7a3 3 0 1 0 3 3"></path><path d="M11.8 5.2V10a8 8 0 0 1-8 8"></path></svg>
+						Clinical Collaborative Project
+					</div>
+					<div class="flagship-body p-8">
+						<h3 class="flagship-title mb-6" style="font-size: 1.75rem;">{proj.title}</h3>
+						<p class="flagship-description" style="font-size: 1.1rem; line-height: 1.7; color: rgba(255, 255, 255, 0.85);">{proj.description}</p>
+					</div>
+				</div>
+			))}
+		</div>
+
+    <div style="margin-top: 4rem; text-align: center;">
+      <a href="/" class="btn btn-outline" style="padding: 1rem 2rem;">← Back to Home</a>
+    </div>
+	</section>
+</Layout>
+
+<style>
+  .flagship-card {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(15, 23, 42, 0.6);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  .flagship-card:hover {
+    border-color: var(--accent-teal);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(45, 212, 191, 0.1);
+  }
+  .flagship-ribbon {
+    color: #fff; /* High contrast white on teal */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+  .flagship-body {
+    background: rgba(10, 15, 28, 0.5);
+    backdrop-filter: blur(12px);
+  }
+  .flagship-title {
+    color: var(--text-primary);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    letter-spacing: -0.01em;
+  }
+  .flagship-description {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 450;
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+</style>
