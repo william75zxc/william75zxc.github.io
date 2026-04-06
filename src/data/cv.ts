@@ -12,7 +12,7 @@ export const cv = {
   birthDate: "2001-09-25",
   age: 24,
   gpa: "4.10 / 4.30",
-  profileImage: "/images/profile.jpg",
+  profileImage: "/images/profile_suit.png",
   cvPdf: "/cv.pdf",
   website: "https://william75zxc.github.io/",
   researchInterests: [
