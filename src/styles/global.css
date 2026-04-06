@@ -91,9 +91,9 @@ a {
 .page-layout {
   display: grid;
   grid-template-columns: 320px 1fr;
-  gap: 4rem;
-  padding-top: 2rem;
-  padding-bottom: 6rem;
+  gap: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 8rem;
 }
 
 @media (max-width: 1024px) {
@@ -272,17 +272,29 @@ a {
   transform: translateY(-2px);
 }
 
+.highlights-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
 .view-more-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 1.25rem;
-  font-size: 0.85rem;
+  gap: 0.5rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--accent-sky);
   text-transform: uppercase;
   transition: all 0.3s ease;
-  opacity: 0.8;
+  padding: 0.5rem 0;
 }
 
 .view-more-btn:hover {

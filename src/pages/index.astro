@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
 import HighlightCard from '../components/HighlightCard.astro';
 import { cv } from '../data/cv';
 
@@ -8,10 +9,12 @@ const { tagline, bio, heroText, highlights, education, experience, additionalPro
 
 <Layout title="Home">
 	<div class="page-layout container">
+    <!-- Sidebar Component (Restored) -->
+    <Sidebar />
+
 		<main class="main-content">
-      <!-- Biography Section -->
+      <!-- Biography & Highlights Section -->
 			<section id="bio" class="section-spacing">
-        <h2 class="section-title">Biography</h2>
 				<div class="bio-hero glass">
           <h2 class="tagline">{tagline}</h2>
           <div class="bio-content">
@@ -85,13 +88,13 @@ const { tagline, bio, heroText, highlights, education, experience, additionalPro
           {additionalProjects.map((project) => (
             <div class="flagship-card">
               <div class="flagship-ribbon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2l-.2.3ZM7 2a3 3 0 1 0-3 3"></path><path d="M5.9 4.7a3 3 0 1 0 3 3"></path><path d="M11.8 5.2V10a8 8 0 0 1-8 8"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><circle cx="12" cy="12" r="10"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M2 12h2"></path><path d="M20 12h2"></path></svg>
                 Clinical Collaboration
               </div>
               <div class="flagship-body">
                 <div class="flagship-tags">
-                  <span class="tag-pill">Clinical System</span>
-                  <span class="tag-pill">Real-world Deployment</span>
+                  <span class="tag-pill">Clinical Project</span>
+                  <span class="tag-pill">Deploed System</span>
                 </div>
                 <h3 class="flagship-title">{project.title}</h3>
                 <p class="flagship-description">{project.description}</p>
@@ -117,7 +120,7 @@ const { tagline, bio, heroText, highlights, education, experience, additionalPro
                 <div class="meta-row text-sm">
                   <span class="time-stamp">{pub.year}</span>
                   <span class="venue italic text-sky">{pub.venue}</span>
-                  <span class="status ml-auto text-teal font-semibold">{pub.status}</span>
+                  <span class="status ml-auto text-teal font-semibold font-body">{pub.status}</span>
                 </div>
               </div>
             ))}
@@ -147,8 +150,8 @@ const { tagline, bio, heroText, highlights, education, experience, additionalPro
       <section id="honors" class="section-spacing">
         <h2 class="section-title">Honors, Patents & Awards</h2>
         
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-          <div>
+        <div class="honors-card-grid mb-12">
+          <div class="honor-panel">
             <h3 class="sub-title mb-4">Patents</h3>
             <div class="list">
               {patents.map((p) => (
@@ -159,21 +162,24 @@ const { tagline, bio, heroText, highlights, education, experience, additionalPro
               ))}
             </div>
           </div>
-          <div>
-            <h3 class="sub-title mb-4">Awards</h3>
+          <div class="honor-panel">
+            <h3 class="sub-title mb-4">Awards & Achievements</h3>
             <div class="list">
-              {honors.find(h => h.category === "Awards").items.map((item) => (
-                <div class={`glass p-6 ${item.includes("NSTC") ? "border-l-4 border-gold" : ""}`}>
-                  {item.includes("NSTC") && <div class="badge-honor">National Level Honor</div>}
-                  <p class={item.includes("NSTC") ? "text-gold font-bold" : ""}>{item}</p>
-                </div>
+              {honors.map((group) => (
+                group.items.map((item) => (
+                  <div class={`glass p-6 ${item.includes("NSTC") ? "border-l-4 border-gold" : ""}`}>
+                    {item.includes("NSTC") && <div class="badge-honor">National Level Honor</div>}
+                    <p class={item.includes("NSTC") ? "text-gold font-bold" : ""}>{item}</p>
+                    {item.includes("NSTC") && <p class="text-xs text-secondary mt-2">Project: Cloud-Based BI-RADS Classification Model for Breast Ultrasound in Primary Care Clinics.</p>}
+                  </div>
+                ))
               ))}
             </div>
           </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-          <div>
+        <div class="honors-card-grid">
+          <div class="honor-panel">
             <h3 class="sub-title mb-4">Academic Service</h3>
             <ul class="service-list">
               {academicService.map((s) => (
@@ -181,7 +187,7 @@ const { tagline, bio, heroText, highlights, education, experience, additionalPro
               ))}
             </ul>
           </div>
-          <div>
+          <div class="honor-panel">
             <h3 class="sub-title mb-4">Certifications</h3>
             <ul class="cert-list">
               {certifications.map((c) => (
@@ -249,9 +255,14 @@ const { tagline, bio, heroText, highlights, education, experience, additionalPro
     gap: 1rem;
     flex-wrap: wrap;
   }
+  .honors-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
   }
   .flex { display: flex; }
@@ -262,4 +273,10 @@ const { tagline, bio, heroText, highlights, education, experience, additionalPro
   .mb-4 { margin-bottom: 1rem; }
   .mb-2 { margin-bottom: 0.5rem; }
   .ml-auto { margin-left: auto; }
+
+  @media (max-width: 1200px) {
+    .honors-card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
