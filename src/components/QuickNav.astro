@@ -1,24 +1,135 @@
 ---
 ---
-<div class="quick-nav-widget">
-  <a href="/" class="nav-widget-item">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-    <span class="nav-label">Home</span>
-  </a>
-  <a href="/#bio" class="nav-widget-item">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-    <span class="nav-label">About & Highlights</span>
-  </a>
-  <a href="/#research" class="nav-widget-item">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
-    <span class="nav-label">Research Portfolio</span>
-  </a>
-  <a href="/#projects" class="nav-widget-item">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-    <span class="nav-label">Clinical Systems</span>
-  </a>
-  <a href="/#honors" class="nav-widget-item">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-    <span class="nav-label">Honors & Awards</span>
-  </a>
+<div class="quick-nav-container">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+  <label for="nav-toggle" class="nav-toggle-btn glass">
+    <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </label>
+
+  <div class="quick-nav-widget glass">
+    <a href="/" class="nav-widget-item" title="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    </a>
+    <a href="/#bio" class="nav-widget-item" title="About & Highlights">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+    </a>
+    <a href="/#research" class="nav-widget-item" title="Research Portfolio">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+    </a>
+    <a href="/#projects" class="nav-widget-item" title="Clinical Systems">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+    </a>
+    <a href="/#honors" class="nav-widget-item" title="Honors & Awards">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+    </a>
+    <a href="/#contact" class="nav-widget-item" title="Contact Me">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </a>
+  </div>
 </div>
+
+<style>
+  .quick-nav-container {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-toggle-input {
+    display: none;
+  }
+
+  .nav-toggle-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--accent-sky);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+
+  .nav-toggle-btn:hover {
+    transform: scale(1.1);
+    color: var(--text-primary);
+  }
+
+  .nav-toggle-btn svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .icon-close { display: none; }
+
+  .quick-nav-widget {
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .nav-toggle-input:checked ~ .quick-nav-widget {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .nav-toggle-input:checked ~ .nav-toggle-btn {
+    background: rgba(56, 189, 248, 0.2);
+    transform: rotate(90deg);
+  }
+
+  .nav-toggle-input:checked ~ .nav-toggle-btn .icon-menu { display: none; }
+  .nav-toggle-input:checked ~ .nav-toggle-btn .icon-close { display: block; }
+
+  .nav-widget-item {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+  }
+
+  .nav-widget-item svg {
+    flex-shrink: 0;
+    color: var(--accent-sky);
+    transition: all 0.2s ease;
+  }
+
+  .nav-widget-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+  }
+
+  .nav-widget-item:hover svg {
+    color: var(--text-primary);
+    filter: drop-shadow(0 0 8px var(--accent-sky));
+  }
+
+  @media (max-width: 1024px) {
+    .quick-nav-container {
+      bottom: 1.5rem;
+      left: 1.5rem;
+    }
+  }
+</style>

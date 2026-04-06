@@ -40,10 +40,67 @@ const { title, description = "Jing-Jhong (William) Chen - Ph.D. Student in Biome
 		<main>
 			<slot />
 		</main>
-		<footer class="container footer">
-			<p>&copy; {new Date().getFullYear()} {cv.name} • {cv.title}</p>
+		<footer class="site-footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-left">
+						<p class="copyright">© 2026 {cv.name}. All rights reserved.</p>
+						<p class="credit">Powered by Astro & Glassmorphism Design</p>
+					</div>
+					<div class="footer-right">
+						<a href="#bio" class="footer-link">Back to Top</a>
+					</div>
+				</div>
+			</div>
 		</footer>
-		<style>
+	</body>
+</html>
+
+<style is:global>
+  .site-footer {
+    margin-top: 6rem;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(10, 15, 28, 0.5);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .copyright {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .credit {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  .footer-link {
+    color: var(--accent-sky);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+  }
 			.sticky-nav {
 				position: sticky;
 				top: 0;
