@@ -23,14 +23,16 @@ const { honors, patents, academicService, certifications } = cv;
 			</section>
 
 			<section class="honors-category">
-				<h2 class="sub-title">National Honors & Awards</h2>
+				<h2 class="sub-title">Honors & Awards</h2>
 				<div class="award-list">
 					{honors.map((group) => (
 						<div class="honor-group">
 							<h3 class="group-label">{group.category}</h3>
 							<ul class="honor-items">
 								{group.items.map((item) => (
-									<li class={item.includes("National") || item.includes("NSTC") ? "national-honor" : ""}>{item}</li>
+									<li class={item.includes("National") || item.includes("NSTC") ? "national-honor" : ""}>
+                    <p>{item}</p>
+                  </li>
 								))}
 							</ul>
 						</div>

@@ -141,20 +141,21 @@ export const cv = {
   ],
   honors: [
     {
-      category: "Achievements", items: [
+      category: "Awards", items: [
+        "Research & Creative Award, 2023 NSTC Undergraduate Research Project (Project: Cloud-Based BI-RADS Classification Model for Breast Ultrasound in Primary Care Clinics)",
+        "Third Prize, Project Competition, National Taipei University of Nursing and Health Sciences",
+        "Third Prize, Smart Technology Division, 2021 National Health Technology Innovation Competition (MR Glasses Project)",
+        "Shortlisted, Smart Innovation Award with the AItewan AI-Assisted Brain Tumor Analysis System"
+      ]
+    },
+    {
+      category: "Selected Achievements", items: [
         "Co-developed AItewan DeepBT Detector Plus (TFDA clearance; FDA pending)",
         "Independently developed Liger MedAI Management Platform (TFDA in progress)",
         "Clinical Deployment: Taipei VGH, Taichung VGH, Shin Kong Hospital",
         "Selected: CYBERSEC 2026 Preliminary Review",
-        "Selected: MITW Taiwan Medical Imaging Datathon 2024 (Track 4 & 8)"
-      ]
-    },
-    {
-      category: "Awards", items: [
-        "Research & Creative Award, 2023 NSTC Undergraduate Research Project",
-        "Third Prize, NTUNHS Project Competition",
-        "Third Prize, 2021 National Health Technology Innovation Competition",
-        "Shortlisted, Smart Innovation Award"
+        "Selected: MITW Taiwan Medical Imaging Datathon 2024 (Track 4 & 8)",
+        "Passed SAS Campus Hackathon Preliminary Round"
       ]
     }
   ],
@@ -165,9 +166,12 @@ export const cv = {
     "Completion, Medical Informatics Program, NTUNHS"
   ],
   academicService: [
-    "TA: DICOM/FHIR Training, Database Management, OOP",
-    "TA: Deep Learning & Machine Learning in Biomedical Applications",
-    "Coordinator: MITW Taiwan Medical Imaging Datathon 2025"
+    "Teaching Assistant, DICOM and FHIR Training Program",
+    "Teaching Assistant, Database Management Systems",
+    "Teaching Assistant, Object-Oriented Programming",
+    "Teaching Assistant, Deep Learning and Biomedical Applications",
+    "Teaching Assistant, Machine Learning and Biomedical Applications",
+    "Exhibition and Demonstration Coordinator, MITW Taiwan Medical Imaging Datathon 2025"
   ],
   skills: {
     languages: ["Python", "JavaScript", "Node.js", "React.js", "Git"],
