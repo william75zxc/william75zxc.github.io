@@ -90,101 +90,107 @@ const { tagline, bio, heroText, highlights, researchVision, experience, addition
         </div>
       </section>
 
-      <div class="two-column-grid section-spacing">
-        <section id="honors" class="honors-summary">
-          <h2 class="section-title">Honors & Patents</h2>
-          <div class="list">
-             {honors.map((group, index) => (
-                <>
-                  <h3 class={`item-title mb-spacing ${index > 0 ? "mt-spacing" : ""}`}>{group.category}</h3>
-                  {group.items.map((item) => (
-                    <div class="award-card glass">
-                      <div class="award-icon" style={group.category === "Awards" ? "color: var(--accent-gold); background: rgba(245, 158, 11, 0.15);" : "color: var(--accent-sky); background: rgba(56, 189, 248, 0.15);"}>
-                        {group.category === "Awards" ? (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
-                        ) : (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        )}
+      <!-- Publications Section -->
+      <section id="publications" class="section-spacing">
+        <h2 class="section-title">Publications & Presentations</h2>
+        
+        <h3 class="item-title mb-spacing" style="color: var(--accent-sky);">Journal Papers</h3>
+        <div class="card-grid">
+          {publications.journals.map((pub) => (
+            <div class="award-card glass" style="border-left: 4px solid var(--accent-sky); margin-bottom: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+                <div>
+                  <h3 class="paper-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4;">{pub.title}</h3>
+                  <p class="paper-meta" style="font-size: 0.9rem; color: var(--accent-sky); font-weight: 600; margin-top: 0.5rem;">{pub.venue} • {pub.status}</p>
+                </div>
+                <span class="badge" style="background: rgba(56, 189, 248, 0.1); color: var(--accent-sky); border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; text-transform: uppercase;">Journal</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="item-title mb-spacing" style="color: var(--accent-gold); margin-top: 2rem;">Conference Proceedings</h3>
+        <div class="card-grid">
+          {publications.conferences.map((pub) => (
+            <div class="award-card glass" style={`border-left: 4px solid ${pub.type.includes('Oral') ? 'var(--accent-gold)' : pub.type.includes('Poster') ? '#c084fc' : 'rgba(255,255,255,0.2)'}; margin-bottom: 0;`}>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+                <div>
+                  <h3 class="paper-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4;">{pub.title}</h3>
+                  <p class="paper-meta" style={`font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; color: ${pub.type.includes('Oral') ? 'var(--accent-gold)' : 'var(--text-secondary)'};`}>
+                    {pub.venue} • {pub.type}
+                  </p>
+                </div>
+                {pub.type.includes('Oral') ? (
+                  <span class="badge" style="background: rgba(250, 204, 21, 0.15); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.3); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; font-weight: 800; text-transform: uppercase;">Oral</span>
+                ) : pub.type.includes('Poster') ? (
+                  <span class="badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; font-weight: 800; text-transform: uppercase;">Poster</span>
+                ) : (
+                  <span class="badge" style="background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; text-transform: uppercase;">{pub.type}</span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style="margin-top: 2.5rem; text-align: center;">
+          <a href="/publications" class="btn btn-outline" style="border-width: 2px; padding: 0.8rem 2.5rem; font-weight: 700; border-color: var(--accent-sky); color: var(--accent-sky);">View Dedicated Publications Page →</a>
+        </div>
+      </section>
+
+      <!-- Honors Section -->
+      <section id="honors" class="section-spacing">
+        <h2 class="section-title">Honors & Patents</h2>
+        {honors.map((group, index) => (
+          <>
+            <h3 class={`item-title mb-spacing ${index > 0 ? "mt-spacing" : ""}`}>{group.category}</h3>
+            <div class="card-grid">
+              {group.items.map((item) => (
+                <div class="award-card glass" style="margin-bottom: 0;">
+                  <div class="award-icon" style={group.category === "Awards" ? "color: var(--accent-gold); background: rgba(245, 158, 11, 0.15);" : "color: var(--accent-sky); background: rgba(56, 189, 248, 0.15);"}>
+                    {group.category === "Awards" ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    )}
+                  </div>
+                  <div class="award-content">
+                    {typeof item === 'string' ? (
+                      <p class={group.category === "Awards" && !item.includes("Shortlisted") ? "award-title text-gold" : "award-title"}>{item}</p>
+                    ) : (
+                      <a href={item.url} target="_blank" class="award-title hover-link" style="text-decoration: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <span class={group.category === "Awards" && !item.text.includes("Shortlisted") ? "text-gold" : ""}>{item.text}</span>
+                        <div class="link-pill" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 0.4rem 1rem; border-radius: 2rem; width: fit-content; transition: all 0.3s ease;">
+                          <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-sky); letter-spacing: 0.05em;">VIEW SESSION</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-sky);"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </div>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {group.category === "Awards" && (
+              <>
+                <h3 class="item-title mt-spacing mb-spacing">Patents</h3>
+                <div class="card-grid">
+                  {cv.patents.map((item) => (
+                    <div class="award-card glass" style="margin-bottom: 0;">
+                      <div class="award-icon" style="color: var(--accent-teal); background: rgba(13, 148, 136, 0.15);">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
                       </div>
                       <div class="award-content">
-                        {typeof item === 'string' ? (
-                          <p class={group.category === "Awards" && !item.includes("Shortlisted") ? "award-title text-gold" : "award-title"}>{item}</p>
-                        ) : (
-                          <a href={item.url} target="_blank" class="award-title hover-link" style="text-decoration: none; display: flex; flex-direction: column; gap: 0.75rem;">
-                            <span class={group.category === "Awards" && !item.text.includes("Shortlisted") ? "text-gold" : ""}>{item.text}</span>
-                            <div class="link-pill" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 0.4rem 1rem; border-radius: 2rem; width: fit-content; transition: all 0.3s ease;">
-                              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-sky); letter-spacing: 0.05em;">VIEW SESSION</span>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-sky);"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                            </div>
-                          </a>
-                        )}
+                        <h3 class="award-title">{item.title}</h3>
+                        <p class="paper-meta">{item.status}</p>
                       </div>
                     </div>
                   ))}
-                  
-                  {group.category === "Awards" && (
-                    <>
-                      <h3 class="item-title mt-spacing mb-spacing">Patents</h3>
-                      {cv.patents.map((item) => (
-                        <div class="award-card glass">
-                          <div class="award-icon" style="color: var(--accent-teal); background: rgba(13, 148, 136, 0.15);">
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
-                          </div>
-                          <div class="award-content">
-                            <h3 class="award-title">{item.title}</h3>
-                            <p class="paper-meta">{item.status}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </>
-                  )}
-                </>
-             ))}
-          </div>
-        </section>
-
-        <section class="publications-summary">
-          <h2 class="section-title">Publications & Presentations</h2>
-          <div class="list">
-            <h3 class="item-title mb-spacing" style="color: var(--accent-sky); margin-bottom: 1rem;">Journal Papers</h3>
-            {publications.journals.map((pub) => (
-              <div class="award-card glass mb-4" style="border-left: 4px solid var(--accent-sky);">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
-                  <div>
-                    <h3 class="paper-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4;">{pub.title}</h3>
-                    <p class="paper-meta" style="font-size: 0.9rem; color: var(--accent-sky); font-weight: 600; margin-top: 0.5rem;">{pub.venue} • {pub.status}</p>
-                  </div>
-                  <span class="badge" style="background: rgba(56, 189, 248, 0.1); color: var(--accent-sky); border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; text-transform: uppercase;">Journal</span>
                 </div>
-              </div>
-            ))}
-            
-            <h3 class="item-title mb-spacing" style="color: var(--accent-gold); margin-top: 2rem; margin-bottom: 1rem;">Conference Proceedings</h3>
-            {publications.conferences.map((pub) => (
-              <div class="award-card glass mb-4" style={`border-left: 4px solid ${pub.type.includes('Oral') ? 'var(--accent-gold)' : pub.type.includes('Poster') ? '#c084fc' : 'rgba(255,255,255,0.2)'};`}>
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
-                  <div>
-                    <h3 class="paper-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4;">{pub.title}</h3>
-                    <p class="paper-meta" style={`font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; color: ${pub.type.includes('Oral') ? 'var(--accent-gold)' : 'var(--text-secondary)'};`}>
-                      {pub.venue} • {pub.type}
-                    </p>
-                  </div>
-                  {pub.type.includes('Oral') ? (
-                    <span class="badge" style="background: linear-gradient(135deg, gold, #f59e0b); color: #000; font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; font-weight: 800; text-transform: uppercase;">Oral</span>
-                  ) : pub.type.includes('Poster') ? (
-                    <span class="badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; font-weight: 800; text-transform: uppercase;">Poster</span>
-                  ) : (
-                    <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; text-transform: uppercase;">{pub.type}</span>
-                  )}
-                </div>
-              </div>
-            ))}
-
-            <div style="margin-top: 2.5rem; text-align: center;">
-              <a href="/publications" class="btn btn-outline" style="border-width: 2px; padding: 0.8rem 2.5rem; font-weight: 700; border-color: var(--accent-sky); color: var(--accent-sky);">View Dedicated Publications Page →</a>
-            </div>
-      </div>
-    </section>
+              </>
+            )}
+          </>
+        ))}
+      </section>
     </main>
 	</div>
 
@@ -274,6 +280,17 @@ const { tagline, bio, heroText, highlights, researchVision, experience, addition
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .contact-item-row {
