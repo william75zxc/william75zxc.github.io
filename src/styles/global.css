@@ -18,10 +18,45 @@
   --font-body: 'Inter', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.sidebar-nav {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-anchor {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.nav-anchor:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  transform: translateX(5px);
+}
+
+.nav-anchor svg {
+  width: 18px;
+  height: 18px;
+  opacity: 0.7;
 }
 
 body {
@@ -112,12 +147,14 @@ a {
 }
 
 .section-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 2.25rem;
+  font-weight: 800;
   color: var(--text-primary);
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1.5rem;
+  scroll-margin-top: 100px; /* Offset for sticky nav */
 }
 
 .section-title::after {
@@ -125,6 +162,14 @@ a {
   flex: 1;
   height: 1px;
   background: var(--border-color);
+}
+
+.section-spacing {
+  padding: var(--section-gap) 0;
+}
+
+.section-divider {
+  border-bottom: 1px solid var(--border-color);
 }
 
 /* Keyword Highlighting Helpers */

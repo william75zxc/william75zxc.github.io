@@ -1,210 +1,265 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Sidebar from '../components/Sidebar.astro';
 import HighlightCard from '../components/HighlightCard.astro';
 import { cv } from '../data/cv';
 
-const { highlights, bio, heroText, tagline } = cv;
+const { tagline, bio, heroText, highlights, education, experience, additionalProjects, publications, honors, patents, certifications, academicService, skills } = cv;
 ---
 
 <Layout title="Home">
-	<div class="container page-layout">
-		<Sidebar />
-		
+	<div class="page-layout container">
 		<main class="main-content">
-			<section class="bio-hero glass">
-        <h2 class="tagline">{tagline}</h2>
-				<div class="bio-content">
-          <p class="bio-paragraph">
-            Focused on translational medical AI, with the goal of developing technologies that can be seamlessly integrated into real clinical workflows. Current work spans medical image analysis, multimodal deep learning, and VLM-based clinical applications.
-          </p>
-          <p class="bio-paragraph">
-            Particular emphasis is placed on standards-based clinical integration through DICOM, DICOMweb, and FHIR, enabling automated inference and structured reporting within existing hospital systems.
-          </p>
+      <!-- Biography Section -->
+			<section id="bio" class="section-spacing">
+        <h2 class="section-title">Biography</h2>
+				<div class="bio-hero glass">
+          <h2 class="tagline">{tagline}</h2>
+          <div class="bio-content">
+            {bio.split('\n\n').map((p) => (
+              <p class="bio-paragraph">{p}</p>
+            ))}
+          </div>
+          <p class="hero-context">{heroText}</p>
         </div>
-        <p class="hero-context">{heroText}</p>
-				<div class="hero-actions">
-					<a href="/experience" class="btn btn-primary">Research Portfolio</a>
-					<a href="/projects" class="btn btn-outline">Clinical Systems</a>
-				</div>
+
+        <div class="highlights-section mt-12">
+          <div class="highlights-grid">
+            {highlights.map((h) => (
+              <HighlightCard title={h.title} description={h.description} />
+            ))}
+          </div>
+        </div>
 			</section>
 
-			<section class="highlights-section mt-12 mb-16">
-				<div class="highlights-grid">
-					{highlights.map((h) => (
-						<HighlightCard title={h.title} description={h.description} />
-					))}
-				</div>
-			</section>
+      <div class="section-divider"></div>
 
-      <section class="dashboard-section section-spacing mb-16">
-        <h2 class="section-title">Selected Conference Presentations</h2>
-        <div class="summary-list">
-          {cv.publications.conferences.slice(0, 2).map((conf) => (
-            <div class="glass summary-card">
-              <div class="badge-honor">{conf.type} Presentation</div>
-              <h3 class="text-primary text-lg mb-2 font-bold">
-                <span class="time-stamp">{conf.year}</span>
-                {conf.title}
-              </h3>
-              <p class="text-sky text-sm italic">{conf.venue}</p>
+      <!-- Education Section -->
+      <section id="education" class="section-spacing">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+          {education.map((edu) => (
+            <div class="timeline-item glass">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="time-stamp">{edu.period}</span>
+                <h3 class="text-primary font-bold">{edu.institution}</h3>
+                <p class="text-secondary">{edu.degree}</p>
+              </div>
             </div>
           ))}
         </div>
-        <a href="/honors" class="view-more-btn">View All Presentations & Honors →</a>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Research Portfolio Section -->
+      <section id="research" class="section-spacing">
+        <h2 class="section-title">Research Portfolio</h2>
+        <div class="exp-list">
+          {experience[0].projects.map((project) => (
+            <div class="flagship-card">
+              <div class="flagship-ribbon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                {experience[0].institution}
+              </div>
+              <div class="flagship-body">
+                <div class="flagship-tags">
+                  <span class="tag-pill">Ph.D. Researcher</span>
+                  <span class="tag-pill">{project.period}</span>
+                  <span class="tag-pill tag-flagship">Flagship Research</span>
+                </div>
+                <h3 class="flagship-title">{project.title}</h3>
+                <p class="flagship-description">{project.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Clinical Systems Section -->
+      <section id="projects" class="section-spacing">
+        <h2 class="section-title">Clinical Systems & Deployment</h2>
+        <div class="exp-list">
+          {additionalProjects.map((project) => (
+            <div class="flagship-card">
+              <div class="flagship-ribbon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2l-.2.3ZM7 2a3 3 0 1 0-3 3"></path><path d="M5.9 4.7a3 3 0 1 0 3 3"></path><path d="M11.8 5.2V10a8 8 0 0 1-8 8"></path></svg>
+                Clinical Collaboration
+              </div>
+              <div class="flagship-body">
+                <div class="flagship-tags">
+                  <span class="tag-pill">Clinical System</span>
+                  <span class="tag-pill">Real-world Deployment</span>
+                </div>
+                <h3 class="flagship-title">{project.title}</h3>
+                <p class="flagship-description">{project.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Publications Section -->
+      <section id="publications" class="section-spacing">
+        <h2 class="section-title">Selected Publications</h2>
+        
+        <div class="pub-group mb-12">
+          <h3 class="sub-title mb-6">Journal Papers</h3>
+          <div class="list">
+            {publications.journals.map((pub) => (
+              <div class="glass summary-card">
+                <div class="badge-honor">Top-Tier Journal</div>
+                <h3 class="text-primary mb-2 font-bold">{pub.title}</h3>
+                <div class="meta-row text-sm">
+                  <span class="time-stamp">{pub.year}</span>
+                  <span class="venue italic text-sky">{pub.venue}</span>
+                  <span class="status ml-auto text-teal font-semibold">{pub.status}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="pub-group">
+          <h3 class="sub-title mb-6">Conference Presentations</h3>
+          <div class="list">
+            {publications.conferences.map((conf) => (
+              <div class="glass summary-card">
+                <div class="badge-honor">{conf.type} Presentation</div>
+                <h3 class="text-primary mb-2 font-bold">{conf.title}</h3>
+                <div class="meta-row text-sm">
+                  <span class="time-stamp">{conf.year}</span>
+                  <span class="venue italic text-sky">{conf.venue}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Honors & Awards Section -->
+      <section id="honors" class="section-spacing">
+        <h2 class="section-title">Honors, Patents & Awards</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h3 class="sub-title mb-4">Patents</h3>
+            <div class="list">
+              {patents.map((p) => (
+                <div class="glass p-6 border-l-4 border-sky">
+                  <h4 class="font-bold mb-2">{p.title}</h4>
+                  <span class="time-stamp">{p.status}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 class="sub-title mb-4">Awards</h3>
+            <div class="list">
+              {honors.find(h => h.category === "Awards").items.map((item) => (
+                <div class={`glass p-6 ${item.includes("NSTC") ? "border-l-4 border-gold" : ""}`}>
+                  {item.includes("NSTC") && <div class="badge-honor">National Level Honor</div>}
+                  <p class={item.includes("NSTC") ? "text-gold font-bold" : ""}>{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="sub-title mb-4">Academic Service</h3>
+            <ul class="service-list">
+              {academicService.map((s) => (
+                <li class="glass p-4 text-sm">{s}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 class="sub-title mb-4">Certifications</h3>
+            <ul class="cert-list">
+              {certifications.map((c) => (
+                <li class="glass p-4 text-sm">{c}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section-spacing">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="glass p-8">
+            <h3 class="text-teal font-bold mb-4">Languages & Core</h3>
+            <div class="flex flex-wrap gap-2">
+              {skills.languages.map(s => <span class="tag-pill">{s}</span>)}
+            </div>
+          </div>
+          <div class="glass p-8">
+            <h3 class="text-teal font-bold mb-4">Medical Standards</h3>
+            <div class="flex flex-wrap gap-2">
+              {skills.standards.map(s => <span class="tag-pill">{s}</span>)}
+            </div>
+          </div>
+          <div class="glass p-8">
+            <h3 class="text-teal font-bold mb-4">AI & Modeling</h3>
+            <div class="flex flex-wrap gap-2">
+              {skills.technologies.map(s => <span class="tag-pill">{s}</span>)}
+            </div>
+          </div>
+          <div class="glass p-8">
+            <h3 class="text-teal font-bold mb-4">Domains</h3>
+            <div class="flex flex-wrap gap-2">
+              {skills.domains.map(s => <span class="tag-pill">{s}</span>)}
+            </div>
+          </div>
+        </div>
       </section>
 		</main>
 	</div>
 </Layout>
 
 <style>
-	.main-content {
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
-	}
-
-	.bio-hero {
-		padding: 3rem;
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-
-  .tagline {
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1.2;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
-  }
-
-  .bio-content {
+  .timeline {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-  }
-
-	.bio-paragraph {
-		font-size: 1.15rem;
-		line-height: 1.8;
-		color: var(--text-primary);
-		font-weight: 400;
-	}
-
-	.hero-context {
-		font-size: 1rem;
-		line-height: 1.7;
-		color: var(--text-secondary);
-		padding: 1.5rem;
-		border-left: 4px solid var(--accent-teal);
-		background: rgba(13, 148, 136, 0.05);
-		border-radius: 0 1rem 1rem 0;
-	}
-
-	.hero-actions {
-		display: flex;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-
-  .highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
   }
-
-	.interests-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-		gap: 1.5rem;
-	}
-
-	.interest-item {
-		padding: 1.5rem;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-    transition: transform 0.3s ease;
-	}
-
-  .interest-item:hover {
-    transform: translateX(8px);
-    border-color: var(--accent-teal);
+  .timeline-item {
+    padding: 1.5rem 2rem;
+    position: relative;
   }
-
-	.honors-container {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-	}
-
-	.sub-title {
-		font-size: 1.25rem;
-		color: var(--accent-sky);
-		margin-bottom: 1rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-	}
-
-	.honor-list {
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-	}
-
-	.honor-list li {
-		padding-left: 1.25rem;
-		position: relative;
-    color: var(--text-secondary);
-	}
-
-	.honor-list li::before {
-		content: "•";
-		color: var(--accent-teal);
-		position: absolute;
-		left: 0;
-		font-weight: bold;
-	}
-
-  .two-column-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .cert-list, .service-list, .summary-list, .list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem; /* Increased from 1rem or 1.5rem to create more space */
-  }
-
-  .time-stamp {
-    font-size: 0.85rem;
+  .sub-title {
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--accent-sky);
-    background: rgba(56, 189, 248, 0.1);
-    padding: 0.1rem 0.5rem;
-    border-radius: 4px;
-    margin-right: 0.5rem;
   }
-
-  .cert-list li, .service-list li {
-    padding: 1rem 1.25rem;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    border-radius: 0.75rem;
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
-
-	@media (max-width: 1024px) {
-    .two-column-grid { grid-template-columns: 1fr; }
-		.bio-hero { padding: 2rem 1.5rem; }
-		.bio-text { font-size: 1rem; }
-    .hero-actions { flex-direction: column; }
-	}
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .flex { display: flex; }
+  .flex-wrap { flex-wrap: wrap; }
+  .gap-2 { gap: 0.5rem; }
+  .mb-12 { margin-bottom: 3rem; }
+  .mb-6 { margin-bottom: 1.5rem; }
+  .mb-4 { margin-bottom: 1rem; }
+  .mb-2 { margin-bottom: 0.5rem; }
+  .ml-auto { margin-left: auto; }
 </style>
