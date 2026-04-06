@@ -7,17 +7,30 @@ const { journals, conferences } = cv.publications;
 ---
 
 <Layout title="Publications">
-	<section class="container">
-		<h1 class="section-title">Selected Publications & Presentations</h1>
+	<section class="container" style="max-width: 900px; margin: 0 auto; padding-top: 4rem; padding-bottom: 6rem;">
+    <div style="margin-bottom: 4rem;">
+		  <h1 class="section-title" style="margin-bottom: 1rem; font-size: 3rem;">Publications</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">A complete record of academic publications, including journal articles currently under review and conference proceedings.</p>
+    </div>
 		
 		<div class="category">
 			<h2 class="sub-title">Journal Papers</h2>
 			<div class="list">
 				{journals.map((pub) => (
-					<div class="paper-card glass">
-            <h3 class="paper-title">{pub.title}</h3>
-            <p class="paper-meta">{pub.venue} • {pub.status} • {pub.year} • {pub.role}</p>
-					</div>
+					<div class="paper-card glass publication-focused">
+  <h3 class="title">{pub.title}</h3>
+  
+  <div class="meta-row">
+    <span class="venue">{pub.venue}</span>
+    <span class="year px-2 py-1 ml-2 rounded text-xs bg-slate-800 border border-slate-700">{pub.year}</span>
+  </div>
+  
+  <div class="status-row">
+    {pub.role && <span class="badge role-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> {pub.role}</span>}
+    {pub.status && <span class={`badge ${pub.status.includes('Review') || pub.status.includes('Pending') || pub.status.includes('Submitted') ? 'status-review' : 'status-accepted'}`}><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> {pub.status}</span>}
+    <span class="badge type-badge">Journal</span>
+  </div>
+</div>
 				))}
 			</div>
 		</div>
@@ -26,48 +39,81 @@ const { journals, conferences } = cv.publications;
 			<h2 class="sub-title">Conference Papers & Presentations</h2>
 			<div class="list">
 				{conferences.map((pub) => (
-					<div class="paper-card glass">
-            <h3 class="paper-title">{pub.title}</h3>
-            <p class="paper-meta">{pub.venue} • {pub.type} • {pub.year} • {pub.role}</p>
-					</div>
+					<div class="paper-card glass publication-focused">
+  <h3 class="title">{pub.title}</h3>
+  
+  <div class="meta-row">
+    <span class="venue">{pub.venue}</span>
+    <span class="year px-2 py-1 ml-2 rounded text-xs bg-slate-800 border border-slate-700">{pub.year}</span>
+  </div>
+  
+  <div class="status-row">
+    {pub.role && <span class="badge role-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> {pub.role}</span>}
+    {pub.status && <span class={`badge ${pub.status.includes('Review') || pub.status.includes('Pending') || pub.status.includes('Submitted') ? 'status-review' : 'status-accepted'}`}><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> {pub.status}</span>}
+    <span class="badge type-badge">Conference</span>
+  </div>
+</div>
 				))}
 			</div>
 		</div>
-
-		<div class="category">
-			<h2 class="sub-title">Patents</h2>
-			<div class="list">
-				{cv.patents.map((patent) => (
-               <div class="award-card glass">
-                 <div class="award-icon" style="color: var(--accent-teal); background: rgba(13, 148, 136, 0.15);">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
-                 </div>
-                 <div class="award-content">
-                   <h3 class="award-title">{patent.title}</h3>
-                   <p class="paper-meta">{patent.status}</p>
-                 </div>
-               </div>
-				))}
-			</div>
-		</div>
-
-    {cv.publications.presentations && (
-      <div class="category">
-        <h2 class="sub-title">Conference Presentations</h2>
-        <div class="list">
-          {cv.publications.presentations.map((pres) => (
-            <div class="paper-card glass">
-              <h3 class="paper-title">{pres.event}</h3>
-              <p class="paper-meta">{pres.role}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    )}
 	</section>
 </Layout>
 
 <style>
+  .publication-focused {
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .meta-row {
+    font-size: 1.05rem;
+    color: var(--accent-sky);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  .year {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+  }
+
+  .status-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .badge {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .role-badge { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .status-review { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .status-accepted { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .type-badge { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); }
+
 	.category {
 		margin-bottom: 4rem;
 	}
