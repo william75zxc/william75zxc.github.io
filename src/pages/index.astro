@@ -24,8 +24,8 @@ const { highlights, bio, heroText, tagline } = cv;
         </div>
         <p class="hero-context">{heroText}</p>
 				<div class="hero-actions">
-					<a href="/experience" class="btn btn-primary">View Clinical Systems & Research</a>
-					<a href="/cv.pdf" class="btn btn-outline" target="_blank">View Academic CV</a>
+					<a href="/experience" class="btn btn-primary">Research Portfolio</a>
+					<a href="/projects" class="btn btn-outline">Clinical Systems</a>
 				</div>
 			</section>
 
@@ -36,49 +36,6 @@ const { highlights, bio, heroText, tagline } = cv;
 					))}
 				</div>
 			</section>
-
-      <section class="dashboard-section section-spacing">
-        <h2 class="section-title">Latest Research & Experience</h2>
-        <div class="summary-list">
-          {cv.experience[0].projects.slice(0, 2).map((proj) => (
-            <div class="glass summary-card">
-              <h3 class="text-primary text-lg mb-2 font-bold">{proj.title}</h3>
-              <p class="text-secondary text-sm leading-relaxed">{proj.description}</p>
-            </div>
-          ))}
-        </div>
-        <a href="/experience" class="view-more-btn">Explore Full Research Portfolio →</a>
-      </section>
-
-      <section class="dashboard-section section-spacing">
-        <h2 class="section-title">Selected Publications</h2>
-        <div class="summary-list">
-          {cv.publications.journals.slice(0, 1).map((pub) => (
-            <div class="glass summary-card">
-              <div class="badge-honor">Top-Tier Journal</div>
-              <h3 class="text-primary mb-2 font-bold">{pub.title}</h3>
-              <p class="text-sky text-sm italic">{pub.venue}</p>
-            </div>
-          ))}
-        </div>
-        <a href="/publications" class="view-more-btn">View All Publications & Patents →</a>
-      </section>
-
-      <section class="dashboard-section section-spacing">
-        <h2 class="section-title">Key Distinctions</h2>
-        <div class="interests-grid">
-          <div class="glass summary-card border-t-2 border-t-gold">
-            <div class="badge-honor">National Level Honor</div>
-            <h3 class="text-gold font-bold text-lg mb-1">NSTC Research & Creative Award</h3>
-            <p class="text-sm text-secondary">National Science and Technology Council, Taiwan (2023)</p>
-          </div>
-          <div class="glass summary-card border-t-2 border-t-teal">
-            <div class="badge-honor">TFDA Clearance</div>
-            <h3 class="text-primary font-bold text-lg mb-1">AItewan DeepBT Detector Plus</h3>
-            <p class="text-sm text-secondary">Medical Device Approval & Clinical Deployment</p>
-          </div>
-        </div>
-      </section>
 		</main>
 	</div>
 </Layout>

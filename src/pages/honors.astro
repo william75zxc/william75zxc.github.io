@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { cv } from '../data/cv';
+
+const { honors, patents, academicService, certifications } = cv;
+---
+
+<Layout title="Honors & Patents">
+	<section class="container">
+		<h1 class="section-title">Honors, Patents & Academic Service</h1>
+		
+		<div class="honors-grid">
+			<section class="honors-category">
+				<h2 class="sub-title">Patents</h2>
+				<div class="patent-list">
+					{patents.map((patent) => (
+						<div class="glass patent-card">
+							<h3>{patent.title}</h3>
+              <div class="badge-status">{patent.status}</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="honors-category">
+				<h2 class="sub-title">National Honors & Awards</h2>
+				<div class="award-list">
+					{honors.map((group) => (
+						<div class="honor-group">
+							<h3 class="group-label">{group.category}</h3>
+							<ul class="honor-items">
+								{group.items.map((item) => (
+									<li class={item.includes("National") || item.includes("NSTC") ? "national-honor" : ""}>{item}</li>
+								))}
+							</ul>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="honors-category">
+				<h2 class="sub-title">Academic & Teaching Service</h2>
+				<div class="service-grid">
+					{academicService.map((service) => (
+						<div class="glass service-item">{service}</div>
+					))}
+				</div>
+			</section>
+
+			<section class="honors-category">
+				<h2 class="sub-title">Professional Certifications</h2>
+				<div class="cert-grid">
+					{certifications.map((cert) => (
+						<div class="glass cert-item">{cert}</div>
+					))}
+				</div>
+			</section>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.honors-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 5rem;
+	}
+	.sub-title {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		color: var(--accent-teal);
+	}
+	.patent-list, .award-list, .service-grid, .cert-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+  .patent-card {
+    padding: 2rem;
+    border-left: 4px solid var(--accent-sky);
+  }
+  .badge-status {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-sky);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  .honor-group {
+    margin-bottom: 2rem;
+  }
+  .group-label {
+    font-size: 1.25rem;
+    color: var(--accent-sky);
+    margin-bottom: 1rem;
+  }
+	.honor-items {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.honor-items li {
+		padding: 1rem 1.5rem;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid var(--border-color);
+		border-radius: 0.75rem;
+    position: relative;
+    padding-left: 3rem;
+	}
+  .honor-items li::before {
+    content: "★";
+    position: absolute;
+    left: 1.25rem;
+    color: var(--accent-teal);
+  }
+  .national-honor {
+    border-color: var(--accent-gold) !important;
+    background: rgba(245, 158, 11, 0.05) !important;
+  }
+  .national-honor::before {
+    color: var(--accent-gold) !important;
+  }
+  .service-item, .cert-item {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  }
+  .service-grid, .cert-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+</style>

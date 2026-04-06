@@ -8,9 +8,12 @@
   --accent-gold: #f59e0b;
   --accent-gradient: linear-gradient(135deg, #0d9488, #38bdf8);
   --honor-gradient: linear-gradient(135deg, #f59e0b, #d97706);
+  --ribbon-blue: #0f172a;
+  --tag-bg: #eff6ff;
+  --tag-text: #1e40af;
   --border-color: rgba(255, 255, 255, 0.1);
   --card-bg-hover: rgba(30, 41, 59, 0.4);
-  --section-gap: 5rem;
+  --section-gap: 6rem;
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
@@ -143,12 +146,79 @@ a {
   margin-bottom: 0.5rem;
 }
 
+/* Flagship Card Design (Based on User Reference) */
+.flagship-card {
+  background: #f8fafc; /* Professional white/light-gray background for cards */
+  color: #1e293b;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.flagship-ribbon {
+  background: var(--ribbon-blue);
+  color: white;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.flagship-body {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.flagship-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag-pill {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.tag-flagship {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #dbeafe;
+}
+
+.flagship-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.flagship-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
 /* Dashboard Summary Cards - Simplified */
 .summary-card {
-  padding: 1.5rem;
-  border-radius: 1rem;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
   transition: all 0.3s ease;
   border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .summary-card:hover {

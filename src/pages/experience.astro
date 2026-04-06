@@ -5,30 +5,29 @@ import { cv } from '../data/cv';
 const { experience } = cv;
 ---
 
-<Layout title="Experience">
+<Layout title="Research Portfolio">
 	<section class="container">
-		<h1 class="section-title">Research & Project Experience</h1>
+		<h1 class="section-title">Research Portfolio</h1>
 		
 		<div class="exp-list">
 			{experience.map((exp) => (
 				<div class="exp-item">
-					<div class="exp-header glass">
-						<div class="exp-title">
-							<h2>{exp.role}</h2>
-							<p class="institution">{exp.institution}</p>
-							{exp.advisor && <p class="advisor">Advisor: {exp.advisor}</p>}
-						</div>
-						<span class="period">{exp.period}</span>
-					</div>
-					
 					<div class="projects">
 						{exp.projects.map((project) => (
-							<div class="project-card glass">
-								<div class="project-header">
-									<h3>{project.title}</h3>
-									<span class="project-period">{project.period}</span>
-								</div>
-								<p class="description">{project.description}</p>
+							<div class="flagship-card">
+                <div class="flagship-ribbon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  {exp.institution}
+                </div>
+                <div class="flagship-body">
+                  <div class="flagship-tags">
+                    <span class="tag-pill">Ph.D. Researcher</span>
+                    <span class="tag-pill">{project.period}</span>
+                    <span class="tag-pill tag-flagship">Flagship Research</span>
+                  </div>
+                  <h3 class="flagship-title">{project.title}</h3>
+                  <p class="flagship-description">{project.description}</p>
+                </div>
 							</div>
 						))}
 					</div>
