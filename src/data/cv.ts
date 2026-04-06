@@ -2,7 +2,7 @@ export const cv = {
   name: "Jing-Jhong Chen",
   zhName: "陳敬忠",
   title: "Ph.D. Student in Biomedical Engineering",
-  bio: "I am a Ph.D. student at the Institute of Biophotonics, National Yang Ming Chiao Tung University (NYCU), supervised by Prof. Yu-Te Wu. My research focuses on clinical AI integration, medical image analysis, and the implementation of standards-based workflows (DICOM/FHIR) to improve diagnostic efficiency and precision in radiology and thoracic imaging.",
+  bio: "I am a direct-entry Ph.D. student at National Yang Ming Chiao Tung University (NYCU) focused on Health Research. My work bridges the gap between clinically-aligned, rigorous algorithm development—such as my proposed DBI-MambaUNet and Size-Aware Focal Tversky Loss for micro-lesion sensitivity—and the stringent demands of actual medical workflows. Rather than stopping at theoretical performance, I build end-to-end systems. My research spans contrast-free brain tumor MRI analysis via knowledge distillation, the development of 3D medical vision-language models (VLM) for automated clinical report generation, hallucination-resistant structured reporting natively integrated with clinical PACS, and leading teams to scale TFDA/FDA-facing oncology systems.",
   email: "abc2001925@gmail.com",
   phone: "+886 975306639",
   location: "New Taipei City, Taiwan",
@@ -42,32 +42,32 @@ export const cv = {
         {
           title: "Standards-Based Clinical AI Integration for Radiology Workflows",
           period: "2024-2025",
-          description: "Led development of vendor-neutral, PACS-native clinical AI system built upon IHE standards (DICOM, FHIR). Integrated brain tumor MRI analysis, contrast-free inference, and structured report generation. Achieved TFDA clearance; FDA review pending."
+          description: "Led the development of a vendor-neutral, PACS-native clinical AI system built upon international IHE standards (DICOM, DICOMweb, FHIR). Achieved a mean end-to-end latency of 89.82s and reduced reporting turnaround time from 5.37 to 2.23 days. Received TFDA clearance; FDA review pending."
         },
         {
           title: "FHIR-Driven Clinical Decision Support and Report Translation",
           period: "2025-Present",
-          description: "Transforming AI outputs into FHIR resources and integrating RAG-enhanced LLMs for clinically contextualized summarization and report translation."
+          description: "Transformed structured AI outputs into interoperable FHIR resources and integrated RAG-enhanced LLMs for clinically contextualized summarization and report translation."
+        },
+        {
+          title: "Multimodal Clinical Imaging Analysis with LLMs and VLMs",
+          period: "2025-Present",
+          description: "Developed multimodal AI frameworks for lung CT and brain tumor imaging interpretation by integrating LLMs and VLMs for structured report generation and clinically grounded decision support."
         },
         {
           title: "Brain Tumor MRI Analysis and Generative Modeling",
           period: "2024-2025",
-          description: "Developed multimodal deep learning for detection/segmentation. Used GAN/diffusion for lesion synthesis, increasing sensitivity by 16 points for 4–6 mm lesions."
+          description: "Developed multimodal MRI-based deep learning frameworks, leveraging GAN and diffusion models to synthesize realistic small tumor lesions, increasing sensitivity by 16 points for 4–6 mm lesions."
         },
         {
           title: "Non-Contrast MRI Translation and Tumor Classification",
           period: "2024-2025",
-          description: "Leveraged GAN/diffusion to synthesize T1C MRI from T1 inputs for tumor detection."
-        },
-        {
-          title: "Multimodal Lung CT Analysis with LLMs and VLMs",
-          period: "2025-Present",
-          description: "Developing AI frameworks for lung CT interpretation integrating LLMs and VLMs for structured report generation."
+          description: "Leveraged GAN- and diffusion-based models to synthesize T1C MRI from non-contrast T1-weighted inputs for downstream detection and classification."
         },
         {
           title: "Deep Learning for MRI Sequence Classification",
           period: "2024-2025",
-          description: "Automatic classification of MRI sequence types (T1+C, T2, etc.) for automated workflows."
+          description: "Developed deep learning models for automatic classification of multiple MRI sequence types (T1+C, T2, etc.) for fully automated workflows."
         }
       ]
     }
@@ -147,19 +147,24 @@ export const cv = {
   patents: [
     {
       title: "DICOM Metadata-Driven Decision Platform and Method for Automated Medical Imaging Inference",
-      status: "Taiwan invention patent granted; U.S. pending"
+      status: "Taiwan invention patent granted in 2025; U.S. pending"
+    },
+    {
+      title: "Automated Worklist Generation and Multi-Model Inference Work Order Data Structure for Medical Imaging AI",
+      status: "Taiwan and U.S. patent applications pending"
     }
   ],
   honors: [
-    "Co-developed AItewan DeepBT Detector Plus (TFDA medical device clearance)",
-    "Independently developed AItewan Liger MedAI Management Platform (TFDA application in progress)",
+    "Co-developed AItewan DeepBT Detector Plus (TFDA medical device clearance; FDA pending)",
+    "Independently developed AItewan Liger MedAI Management Platform (TFDA in progress)",
     "Shortlisted for Smart Innovation Award with AItewan AI-Assisted Brain Tumor Analysis System",
+    "Research and Creative Award, 2023 NSTC Undergraduate Research Project",
     "MITW Taiwan Medical Imaging Datathon 2024 (Selected for Track 4 & 8)",
-    "NSTC Undergraduate Research Project: Research and Creative Award (2023)"
+    "Third Prize, 2021 National Health Technology Innovation and Creativity Competition (MR Glasses Project)"
   ],
   skills: {
     languages: ["Python", "JavaScript", "Node.js", "React.js", "PyTorch"],
-    domains: ["Medical Imaging AI", "Computer Vision", "Deep Learning", "3D Segmentation"],
-    standards: ["DICOM", "DICOMweb", "FHIR", "IHE Standards"]
+    domains: ["Medical Imaging AI", "Computer Vision", "Deep Learning", "LLMs & VLMs", "3D Segmentation"],
+    standards: ["DICOM", "DICOMweb", "FHIR", "IHE Standards", "Structured Reporting"]
   }
 };
