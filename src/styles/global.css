@@ -250,7 +250,7 @@ a {
   font-size: 2.25rem;
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -265,7 +265,9 @@ a {
 }
 
 .section-spacing {
-  padding: 1.5rem 0;
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
+  margin-top: -1rem; /* Negative margin to pull sections up */
 }
 
 .section-divider {
