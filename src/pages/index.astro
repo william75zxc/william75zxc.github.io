@@ -106,22 +106,31 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
         </section>
 
         <section class="publications-summary">
-          <h2 class="section-title">Publications & Presentations</h2>
+          <h2 class="section-title">Selected Publications</h2>
           <div class="list">
-            <h3 class="item-title mb-spacing">Journal Papers</h3>
-            {publications.journals.map((pub) => (
-              <div class="paper-card glass">
-                <h3 class="paper-title">{pub.title}</h3>
-                <p class="paper-meta">{pub.venue} • {pub.status} • {pub.role}</p>
-              </div>
-            ))}
-            <h3 class="item-title mt-spacing mb-spacing">Conference Papers</h3>
-            {publications.conferences.map((pub) => (
-              <div class="paper-card glass">
-                <h3 class="paper-title">{pub.title}</h3>
-                <p class="paper-meta">{pub.venue} • {pub.type} • {pub.role}</p>
-              </div>
-            ))}
+            <div class="item-card glass">
+              <h3 class="item-title">Journal Papers</h3>
+              <ul class="item-list">
+                {publications.journals.map((pub) => (
+                  <li class="list-node" style="margin-bottom: 0.5rem">
+                    <span class="text-primary font-bold" style="display:block; margin-bottom: 0.2rem;">{pub.title}</span>
+                    <span class="text-sky text-xs">{pub.venue} • {pub.status} • {pub.role}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div class="item-card glass">
+              <h3 class="item-title">Conference Papers</h3>
+              <ul class="item-list">
+                {publications.conferences.map((pub) => (
+                  <li class="list-node" style="margin-bottom: 0.5rem">
+                    <span class="text-primary font-bold" style="display:block; margin-bottom: 0.2rem;">{pub.title}</span>
+                    <span class="text-sky text-xs">{pub.venue} • {pub.type} • {pub.role}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
       </div>
