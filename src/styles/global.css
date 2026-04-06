@@ -5,8 +5,10 @@
   --text-secondary: #94a3b8;
   --accent-teal: #0d9488;
   --accent-sky: #38bdf8;
-  --accent-blue: #1e3a8a;
+  --accent-gold: #f59e0b;
+  --accent-purple: #a855f7;
   --accent-gradient: linear-gradient(135deg, #0d9488, #38bdf8);
+  --honor-gradient: linear-gradient(135deg, #f59e0b, #d97706);
   --border-color: rgba(51, 65, 85, 0.5);
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -121,7 +123,56 @@ a {
   background: var(--border-color);
 }
 
-/* Scrollbar */
+/* Keyword Highlighting Helpers */
+.kw-tech { color: var(--accent-sky); font-weight: 600; }
+.kw-clinical { color: var(--accent-teal); font-weight: 600; }
+.kw-honor { color: var(--accent-gold); font-weight: 700; }
+
+/* Badge Styles */
+.badge-honor {
+  background: var(--honor-gradient);
+  color: #fff;
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* Dashboard Summary Cards */
+.summary-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 3px solid transparent;
+}
+
+.summary-card:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-left-color: var(--accent-teal);
+  transform: translateX(10px);
+}
+
+.view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-sky);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.view-more-btn:hover {
+  gap: 0.8rem;
+  color: var(--text-primary);
+}
 ::-webkit-scrollbar {
   width: 8px;
 }
