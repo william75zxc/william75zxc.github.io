@@ -29,11 +29,22 @@ const { honors, patents, academicService, certifications } = cv;
 						<div class="honor-group">
 							<h3 class="group-label">{group.category}</h3>
 							<ul class="honor-items">
-								{group.items.map((item) => (
-									<li class={item.includes("National") || item.includes("NSTC") ? "national-honor" : ""}>
-                    <p>{item}</p>
-                  </li>
-								))}
+								{group.items.map((item) => {
+                  const text = typeof item === 'string' ? item : item.text;
+                  const url = typeof item === 'object' ? item.url : null;
+                  return (
+                    <li class={text.includes("National") || text.includes("NSTC") ? "national-honor" : ""}>
+                      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 1rem;">
+                        <p>{text}</p>
+                        {url && (
+                          <a href={url} target="_blank" class="glass-pill-mini">
+                            View Session
+                          </a>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
 							</ul>
 						</div>
 					))}
@@ -125,6 +136,22 @@ const { honors, patents, academicService, certifications } = cv;
   }
   .national-honor::before {
     color: var(--accent-gold) !important;
+  }
+  .glass-pill-mini {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--accent-sky);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .glass-pill-mini:hover {
+    background: var(--accent-sky);
+    color: white;
+    transform: translateY(-1px);
   }
   .service-item, .cert-item {
     padding: 1.5rem;

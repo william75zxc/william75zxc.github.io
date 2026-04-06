@@ -26,19 +26,22 @@
     <a href="/#contact" class="nav-widget-item" title="Contact Me">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
     </a>
+    <a href="/#bio" class="nav-widget-item" title="Back to Top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold);"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </a>
   </div>
 </div>
 
 <style>
   .quick-nav-container {
     position: fixed;
-    bottom: 2.5rem;
-    left: 2.5rem;
+    bottom: 6.5rem;
+    right: 2rem;
     z-index: 1000;
     display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column-reverse; /* Toggle button on bottom, Widget above */
+    align-items: flex-end; /* Align items to the right edge of the container */
+    gap: 0.75rem;
   }
 
   .nav-toggle-input {
@@ -46,8 +49,8 @@
   }
 
   .nav-toggle-btn {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -56,6 +59,8 @@
     color: var(--accent-sky);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-toggle-btn:hover {
@@ -64,24 +69,30 @@
   }
 
   .nav-toggle-btn svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 
   .icon-close { display: none; }
 
   .quick-nav-widget {
-    margin-bottom: 0.5rem;
-    padding: 0.75rem;
-    border-radius: 2rem;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(20px) scale(0.95);
+    transform: translateY(15px) scale(0.9);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Force ignore any inherited positioning from global 'glass' class */
+    left: auto !important;
+    right: 0 !important;
+    position: relative !important;
+    margin-right: 0 !important;
   }
 
   .nav-toggle-input:checked ~ .quick-nav-widget {
@@ -99,8 +110,8 @@
   .nav-toggle-input:checked ~ .nav-toggle-btn .icon-close { display: block; }
 
   .nav-widget-item {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,10 +137,11 @@
     filter: drop-shadow(0 0 8px var(--accent-sky));
   }
 
+  /* Responsive adjustment for mobiles */
   @media (max-width: 1024px) {
     .quick-nav-container {
-      bottom: 1.5rem;
-      left: 1.5rem;
+      bottom: 5.5rem;
+      right: 1.5rem;
     }
   }
 </style>

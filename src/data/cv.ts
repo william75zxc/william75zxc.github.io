@@ -148,7 +148,7 @@ export const cv = {
       { id: "c2", title: "Real-time and Continuous AI Inference Workflow with PACS Integration (Indexed by IEEE)", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "1st Author", authors: ["Jing-Jhong Chen"] },
       { id: "c3", title: "Lightweight 3D IDC-MambaUNet for Multi-Modal MRI Brain Tumor Segmentation Using Multi-Resolution Ensemble (Indexed by IEEE)", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "2nd Author", authors: ["Jing-Jhong Chen (2nd Author)"] },
       { id: "c4", title: "Lesion-Wise False-Positive Reduction for Brain Tumor Candidate Masks in Multi-Modal MRI via Mask-Gated 2.5D Spatiotemporal Classification", venue: "AMLDS 2026", type: "Accepted", year: 2026, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] },
-      { id: "c5", title: "Design and Implementation of an Open-Source Integrated Digital Pathology Workflow with DICOM WSI Management and AI-Assisted Analysis", venue: "ECDP 2025", type: "Submitted", year: 2025, role: "4th Author", authors: ["Jing-Jhong Chen (4th Author)"] }
+      { id: "c5", title: "Design and Implementation of an Open-Source Integrated Digital Pathology Workflow with DICOM WSI Management and AI-Assisted Analysis", venue: "ECDP 2026", type: "Submitted", year: 2026, role: "4th Author", authors: ["Jing-Jhong Chen (4th Author)"] }
     ],
     presentations: [
       { event: "SIIM 2024, Washington, DC, USA", role: "Poster Presentation, 1st Author" },
@@ -173,7 +173,11 @@ export const cv = {
         "Co-developed AItewan DeepBT Detector Plus (TFDA clearance; FDA pending)",
         "Independently developed Liger MedAI Management Platform (TFDA in progress)",
         "Clinical Deployment: Taipei VGH, Taichung VGH, Shin Kong Hospital",
-        "Accepted for presentation at CYBERSEC 2026: “AI Software Medical Device Cybersecurity in Practice.”",
+        { 
+          text: "Accepted for presentation at CYBERSEC 2026: “AI Software Medical Device Cybersecurity in Practice.”", 
+          url: "https://cybersec.ithome.com.tw/2026/session/4284",
+          icon: "shield"
+        },
         "Selected: MITW Taiwan Medical Imaging Datathon 2024 (Track 4 & 8)",
         "Passed SAS Campus Hackathon Preliminary Round"
       ]
