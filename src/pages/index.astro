@@ -29,13 +29,30 @@ const { highlights, bio, heroText, tagline } = cv;
 				</div>
 			</section>
 
-			<section class="highlights-section mt-12">
+			<section class="highlights-section mt-12 mb-16">
 				<div class="highlights-grid">
 					{highlights.map((h) => (
 						<HighlightCard title={h.title} description={h.description} />
 					))}
 				</div>
 			</section>
+
+      <section class="dashboard-section section-spacing mb-16">
+        <h2 class="section-title">Selected Conference Presentations</h2>
+        <div class="summary-list">
+          {cv.publications.conferences.slice(0, 2).map((conf) => (
+            <div class="glass summary-card">
+              <div class="badge-honor">{conf.type} Presentation</div>
+              <h3 class="text-primary text-lg mb-2 font-bold">
+                <span class="time-stamp">{conf.year}</span>
+                {conf.title}
+              </h3>
+              <p class="text-sky text-sm italic">{conf.venue}</p>
+            </div>
+          ))}
+        </div>
+        <a href="/honors" class="view-more-btn">View All Presentations & Honors →</a>
+      </section>
 		</main>
 	</div>
 </Layout>
@@ -160,11 +177,21 @@ const { highlights, bio, heroText, tagline } = cv;
     gap: 2rem;
   }
 
-  .cert-list, .service-list {
+  .cert-list, .service-list, .summary-list, .list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem; /* Increased from 1rem or 1.5rem to create more space */
+  }
+
+  .time-stamp {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-sky);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
   }
 
   .cert-list li, .service-list li {
