@@ -13,7 +13,7 @@
   --tag-text: #1e40af;
   --border-color: rgba(255, 255, 255, 0.1);
   --card-bg-hover: rgba(30, 41, 59, 0.4);
-  --section-gap: 3.5rem;
+  --section-gap: 1.5rem;
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
@@ -250,7 +250,7 @@ a {
   font-size: 2.25rem;
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -265,7 +265,7 @@ a {
 }
 
 .section-spacing {
-  padding: var(--section-gap) 0;
+  padding: 1.5rem 0;
 }
 
 .section-divider {
