@@ -2,7 +2,7 @@ export const cv = {
   name: "Jing-Jhong Chen",
   zhName: "陳敬忠",
   title: "Ph.D. Student in Biomedical Engineering",
-  researchVision: "Medical AI • Computer Vision • Health Research",
+  researchVision: "Medical AI • Computer Vision • Standardized DICOM/FHIR • Clinical System Deployment",
   tagline: "Bridging Research and Practice: Engineering Scalable, Standards-Driven Medical AI for Resilient Clinical Workflows and Real-World Impact.",
   bio: `Focused on translational medical AI, with the goal of developing technologies that can be seamlessly integrated into real clinical workflows and bring meaningful benefits to clinical practice. Current work spans medical image analysis, multimodal deep learning, generative models, and large language model–based clinical applications, including brain tumor MRI analysis, micro-lesion detection, non-contrast MRI translation, and multimodal report generation.\n\nParticular emphasis is placed on standards-based clinical integration through DICOM, DICOMweb, and FHIR, enabling automated inference, structured reporting, and interoperable deployment within existing hospital systems. Long-term efforts center on making self-developed AI models not only technically strong, but also truly applicable in clinical settings—improving workflow efficiency, reducing report writing and treatment decision time, enhancing clinical support, and ultimately contributing to better healthcare quality and more seamless real-world adoption.`,
   heroText: "From Bench to Bedside: Engineering Resilient, Standards-Based, and Trusted AI for Modern Healthcare.",
