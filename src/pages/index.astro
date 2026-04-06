@@ -5,7 +5,7 @@ import QuickNav from '../components/QuickNav.astro';
 import HighlightCard from '../components/HighlightCard.astro';
 import { cv } from '../data/cv';
 
-const { tagline, bio, heroText, highlights, experience, additionalProjects, publications, honors } = cv;
+const { tagline, bio, heroText, highlights, researchVision, experience, additionalProjects, publications, honors } = cv;
 ---
 
 <Layout title="Home">
@@ -26,10 +26,13 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
               Driven by the vision of making AI truly useful in healthcare, my research focuses on translational medical AI that can move beyond algorithm development into real clinical practice. I am currently pursuing a Direct Ph.D. in Biomedical Engineering at National Yang Ming Chiao Tung University (NYCU), with an emphasis on medical image analysis, multimodal AI, and standards-based clinical integration through DICOM, DICOMweb, and FHIR. My goal is to develop trustworthy AI systems that can be seamlessly integrated into hospital workflows, reduce clinical burden, and help patients receive timely and effective care.
             </p>
           </div>
-          <div class="hero-context">Bridging AI Model Development and Standards-Based Clinical Integration for Seamless Adoption</div>
           <div class="hero-actions">
-            <a href="#research" class="btn btn-primary">View Clinical Systems & Research</a>
-            <a href="/cv" class="btn btn-outline">View Academic CV</a>
+            <a href="#research" class="btn btn-primary">View Research Portfolio</a>
+            <a href="/cv" class="btn btn-outline">Academic CV Page</a>
+            <a href={cv.cvPdf} download class="btn btn-outline" style="border-color: gold; color: gold; display: inline-flex; align-items: center; gap: 0.5rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download Full CV (PDF)
+            </a>
           </div>
         </div>
 
