@@ -140,19 +140,23 @@ export const cv = {
     { title: "Automated Worklist Generation...", status: "Taiwan and U.S. Pending" }
   ],
   honors: [
-    { category: "Achievements", items: [
-      "Co-developed AItewan DeepBT Detector Plus (TFDA clearance; FDA pending)",
-      "Independently developed Liger MedAI Management Platform (TFDA in progress)",
-      "Clinical Deployment: Taipei VGH, Taichung VGH, Shin Kong Hospital",
-      "Selected: CYBERSEC 2026 Preliminary Review",
-      "Selected: MITW Taiwan Medical Imaging Datathon 2024 (Track 4 & 8)"
-    ]},
-    { category: "Awards", items: [
-      "Research & Creative Award, 2023 NSTC Undergraduate Research Project",
-      "Third Prize, NTUNHS Project Competition",
-      "Third Prize, 2021 National Health Technology Innovation Competition",
-      "Shortlisted, Smart Innovation Award"
-    ]}
+    {
+      category: "Achievements", items: [
+        "Co-developed AItewan DeepBT Detector Plus (TFDA clearance; FDA pending)",
+        "Independently developed Liger MedAI Management Platform (TFDA in progress)",
+        "Clinical Deployment: Taipei VGH, Taichung VGH, Shin Kong Hospital",
+        "Selected: CYBERSEC 2026 Preliminary Review",
+        "Selected: MITW Taiwan Medical Imaging Datathon 2024 (Track 4 & 8)"
+      ]
+    },
+    {
+      category: "Awards", items: [
+        "Research & Creative Award, 2023 NSTC Undergraduate Research Project",
+        "Third Prize, NTUNHS Project Competition",
+        "Third Prize, 2021 National Health Technology Innovation Competition",
+        "Shortlisted, Smart Innovation Award"
+      ]
+    }
   ],
   certifications: [
     "Certified Medical Information Manager",
