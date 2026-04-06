@@ -79,20 +79,44 @@ export const cv = {
         {
           title: "Standards-Based Clinical AI Integration for Radiology Workflows",
           period: "2024-2025",
-          description: "Led development of vendor-neutral, PACS-native clinical AI system built upon international IHE standards (DICOM, FHIR). Integrated brain tumor MRI analysis, contrast-free inference, and structured report generation. Received TFDA clearance; FDA review pending."
+          description: "Led the development of a vendor-neutral, PACS-native clinical AI system built upon international IHE standards. Achieved mean end-to-end latency of 89.82s and reduced reporting turnaround from 5.37 to 2.23 days. Received TFDA clearance; FDA review pending."
         },
         {
           title: "FHIR-Driven Clinical Decision Support and Report Translation",
           period: "2025-Present",
-          description: "Transforming AI outputs into FHIR resources and integrating RAG-enhanced LLMs for clinically contextualized summarization and report translation."
+          description: "Transforming structured AI outputs into interoperable FHIR resources and integrated RAG-enhanced LLMs for clinically contextualized summarization and report translation."
         },
         {
-          title: "Multimodal Clinical Imaging Analysis",
+          title: "Brain Tumor MRI Analysis and Generative Modeling",
+          period: "2024-2025",
+          description: "Developed multimodal MRI deep learning frameworks, leveraging GAN and diffusion models to synthesize small tumor lesions. Increased sensitivity by 16 points for 4–6 mm lesions."
+        },
+        {
+          title: "Non-Contrast MRI Translation and Tumor Classification",
+          period: "2024-2025",
+          description: "Synthesized contrast-enhanced T1C MRI from non-contrast T1 inputs using GANs/Diffusion models to improve downstream classification and detection utility."
+        },
+        {
+          title: "Multimodal Clinical Imaging Analysis with LLMs and VLMs",
           period: "2025-Present",
-          description: "Developed AI frameworks for lung CT interpretation integrating LLMs and VLMs for structured report generation and decision support."
+          description: "Developing AI frameworks for lung CT and brain tumor imaging interpretation integrating LLMs and VLMs for structured report generation and decision support."
+        },
+        {
+          title: "Deep Learning for MRI Sequence Classification",
+          period: "2024-2025",
+          description: "Developed models for automatic classification of multiple MRI sequences (T1+C, T2, etc.) to enable preprocessing standardization and end-to-end deployment."
         }
       ]
     }
+  ],
+  additionalProjects: [
+    { title: "Vital Signs Home Assistance System", description: "ML-based monitoring for early risk awareness in home care." },
+    { title: "Precision Medicine Genomic Sequencing Platform", description: "Visualization platform (Node.js/React) for clinical review at Taipei VGH." },
+    { title: "Breast Ultrasound Reporting System", description: "Optimized examination workflow with ASUS Cloud for structured report authoring." },
+    { title: "AI Cloud Service Integration", description: "Cloud architecture for multi-model deployment at Zhonglun Clinic." },
+    { title: "Intelligent Clinical Reporting Assistance", description: "Voice-to-text integration with LLMs for consolidated report summaries." },
+    { title: "FHIR-Based Claims Data Exchange", description: "Data transformation system for integrating clinical reports with insurance records." },
+    { title: "Cross-Platform Intracranial Hemorrhage Testing", description: "Integration testing for ICH AI models with Brain Navi Biotechnology." }
   ],
   publications: {
     journals: [
@@ -105,15 +129,48 @@ export const cv = {
       { id: "c3", title: "Lightweight 3D IDC-MambaUNet...", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "2nd Author", authors: ["Jing-Jhong Chen (2nd Author)"] },
       { id: "c4", title: "Lesion-Wise FP Reduction for Brain Tumor MRI...", venue: "AMLDS 2026", type: "Accepted", year: 2026, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] },
       { id: "c5", title: "Open-Source Integrated Digital Pathology Workflow", venue: "ECDP 2025", type: "Submitted", year: 2025, role: "4th Author", authors: ["Jing-Jhong Chen (4th Author)"] }
+    ],
+    presentations: [
+      { event: "SIIM 2024, Washington, DC, USA", role: "Poster Presentation, 1st Author" },
+      { event: "AMLDS 2025, Tokyo, Japan", role: "Oral Presentation, 1st Author & 2nd Author" }
     ]
   },
   patents: [
     { title: "DICOM Metadata-Driven Decision Platform...", status: "Granted 2025 (Taiwan); U.S. Pending" },
     { title: "Automated Worklist Generation...", status: "Taiwan and U.S. Pending" }
   ],
+  honors: [
+    { category: "Achievements", items: [
+      "Co-developed AItewan DeepBT Detector Plus (TFDA clearance; FDA pending)",
+      "Independently developed Liger MedAI Management Platform (TFDA in progress)",
+      "Clinical Deployment: Taipei VGH, Taichung VGH, Shin Kong Hospital",
+      "Selected: CYBERSEC 2026 Preliminary Review",
+      "Selected: MITW Taiwan Medical Imaging Datathon 2024 (Track 4 & 8)"
+    ]},
+    { category: "Awards", items: [
+      "Research & Creative Award, 2023 NSTC Undergraduate Research Project",
+      "Third Prize, NTUNHS Project Competition",
+      "Third Prize, 2021 National Health Technology Innovation Competition",
+      "Shortlisted, Smart Innovation Award"
+    ]}
+  ],
+  certifications: [
+    "Certified Medical Information Manager",
+    "APMP Project Management Certification",
+    "Certified Assistant Specialist in Smart Healthcare",
+    "Completion, Medical Informatics Program, NTUNHS"
+  ],
+  academicService: [
+    "TA: DICOM/FHIR Training, Database Management, OOP",
+    "TA: Deep Learning & Machine Learning in Biomedical Applications",
+    "Coordinator: MITW Taiwan Medical Imaging Datathon 2025"
+  ],
   skills: {
-    languages: ["Python", "JavaScript", "Node.js", "React.js", "PyTorch"],
-    domains: ["Medical AI", "Computer Vision", "LLMs & VLMs", "3D Segmentation"],
-    standards: ["DICOM", "DICOMweb", "FHIR", "IHE Standards"]
+    languages: ["Python", "JavaScript", "Node.js", "React.js", "Git"],
+    domains: ["Medical Imaging AI", "Computer Vision", "3D Segmentation", "Multimodal Learning"],
+    technologies: ["GANs & Diffusion Models", "LLMs & RAG", "VLMs"],
+    standards: ["DICOM", "DICOMweb", "FHIR", "IHE Standards"],
+    evaluation: ["Lesion-wise sensitivity/precision", "F1 score", "False positives per scan"],
+    naturalLanguages: ["Mandarin Chinese (Native)", "English (Professional)"]
   }
 };

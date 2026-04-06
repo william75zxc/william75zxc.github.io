@@ -36,27 +36,19 @@ const { experience } = cv;
 			))}
 		</div>
 
-    <div class="additional-experience container">
-      <h2 class="section-title">Additional Project Experience</h2>
-      <div class="additional-grid">
-        <div class="glass additional-card">
-          <h3>Vital Signs Home Assistance System</h3>
-          <p>Developed a machine learning-based home health monitoring system for abnormal physiological condition detection.</p>
-        </div>
-        <div class="glass additional-card">
-          <h3>Precision Medicine Genomic Sequencing Management Platform</h3>
-          <p>Genomic data management and visualization using Node.js and React.js for clinical review at Taipei VGH.</p>
-        </div>
-        <div class="glass additional-card">
-          <h3>Breast Ultrasound Reporting System</h3>
-          <p>Collaborated with ASUS Cloud to optimize imaging examination workflows and structured report authoring.</p>
-        </div>
-        <div class="glass additional-card">
-          <h3>AI Cloud Service Integration</h3>
-          <p>Proposed cloud-based AI platform architecture for multi-model deployment and standardized workflow integration.</p>
+    {cv.additionalProjects && (
+      <div class="additional-experience container">
+        <h2 class="section-title">Additional Project Experience</h2>
+        <div class="additional-grid">
+          {cv.additionalProjects.map((proj) => (
+            <div class="glass additional-card">
+              <h3>{proj.title}</h3>
+              <p>{proj.description}</p>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    )}
 	</section>
 </Layout>
 

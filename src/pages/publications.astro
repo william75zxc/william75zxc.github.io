@@ -39,6 +39,20 @@ const { journals, conferences } = cv.publications;
 				))}
 			</div>
 		</div>
+
+    {cv.publications.presentations && (
+      <div class="category">
+        <h2 class="sub-title">Conference Presentations</h2>
+        <div class="list">
+          {cv.publications.presentations.map((pres) => (
+            <div class="glass presentation-card">
+              <h3>{pres.event}</h3>
+              <p>{pres.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
 	</section>
 </Layout>
 
