@@ -101,7 +101,7 @@ const { tagline, bio, heroText, highlights, researchVision, experience, addition
                         )}
                       </div>
                       <div class="award-content">
-                        <p class={group.category === "Awards" ? "award-title text-gold" : "award-title"}>{item}</p>
+                        <p class={group.category === "Awards" && !item.includes("Shortlisted") ? "award-title text-gold" : "award-title"}>{item}</p>
                       </div>
                     </div>
                   ))}

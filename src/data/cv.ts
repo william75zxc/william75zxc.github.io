@@ -12,7 +12,7 @@ export const cv = {
   age: 24,
   gpa: "4.10 / 4.30",
   profileImage: "/images/profile_suit.png",
-  cvPdf: "/Jing-Jhong_Chen_CV_with_website.pdf",
+  cvPdf: "/cv.pdf",
   website: "https://william75zxc.github.io/",
   researchInterests: [
     "Medical image analysis",
@@ -173,7 +173,7 @@ export const cv = {
         "Co-developed AItewan DeepBT Detector Plus (TFDA clearance; FDA pending)",
         "Independently developed Liger MedAI Management Platform (TFDA in progress)",
         "Clinical Deployment: Taipei VGH, Taichung VGH, Shin Kong Hospital",
-        "Selected: CYBERSEC 2026 Preliminary Review",
+        "Accepted for presentation at CYBERSEC 2026: “AI Software Medical Device Cybersecurity in Practice.”",
         "Selected: MITW Taiwan Medical Imaging Datathon 2024 (Track 4 & 8)",
         "Passed SAS Campus Hackathon Preliminary Round"
       ]
