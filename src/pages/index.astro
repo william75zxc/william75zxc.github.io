@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar.astro';
 import HighlightCard from '../components/HighlightCard.astro';
 import { cv } from '../data/cv';
 
-const { highlights, bio, heroText } = cv;
+const { highlights, bio, heroText, tagline } = cv;
 ---
 
 <Layout title="Home">
@@ -13,7 +13,12 @@ const { highlights, bio, heroText } = cv;
 		
 		<main class="main-content">
 			<section class="bio-hero glass">
-				<p class="bio-text">{bio}</p>
+        <h2 class="tagline">{tagline}</h2>
+				<div class="bio-content">
+          {bio.split('\n\n').map((p) => (
+            <p class="bio-paragraph">{p}</p>
+          ))}
+        </div>
         <p class="hero-context">{heroText}</p>
 				<div class="hero-actions">
 					<a href="/experience" class="btn btn-primary">View Clinical Systems & Research</a>
@@ -55,10 +60,27 @@ const { highlights, bio, heroText } = cv;
 		padding: 3rem;
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
+		gap: 1.5rem;
 	}
 
-	.bio-text {
+  .tagline {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+
+  .bio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+	.bio-paragraph {
 		font-size: 1.15rem;
 		line-height: 1.8;
 		color: var(--text-primary);
