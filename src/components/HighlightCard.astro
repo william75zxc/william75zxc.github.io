@@ -1,0 +1,52 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	icon?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="highlight-card glass">
+  <h3 class="title">{title}</h3>
+  <p class="description">{description}</p>
+</div>
+
+<style>
+  .highlight-card {
+    padding: 2.25rem 1.75rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    cursor: default;
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--accent-sky);
+    background: rgba(30, 41, 59, 0.8);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+</style>

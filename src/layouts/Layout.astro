@@ -24,7 +24,7 @@ const { title, description = "Jing-Jhong (William) Chen - Ph.D. Student in Biome
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<header class="glass sticky">
+		<header class="glass sticky-nav">
 			<nav class="container nav-wrapper">
 				<a href="/" class="logo">{cv.name}</a>
 				<ul class="nav-links">
@@ -38,21 +38,22 @@ const { title, description = "Jing-Jhong (William) Chen - Ph.D. Student in Biome
 			<slot />
 		</main>
 		<footer class="container footer">
-			<p>&copy; {new Date().getFullYear()} {cv.name}. Built with Astro.</p>
+			<p>&copy; {new Date().getFullYear()} {cv.name} • {cv.title}</p>
 		</footer>
 		<style>
-			.sticky {
+			.sticky-nav {
 				position: sticky;
 				top: 0;
 				z-index: 100;
 				margin-bottom: 2rem;
-        border-radius: 0 0 1rem 1rem;
+        border-radius: 0 0 1.5rem 1.5rem;
+        background: rgba(15, 23, 42, 0.8);
 			}
 			.nav-wrapper {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				height: 4rem;
+				height: 4.5rem;
 			}
 			.logo {
 				font-size: 1.25rem;
@@ -64,13 +65,20 @@ const { title, description = "Jing-Jhong (William) Chen - Ph.D. Student in Biome
 				display: flex;
 				gap: 2rem;
 				list-style: none;
+        font-weight: 600;
+        font-size: 0.9rem;
 			}
 			.footer {
-				padding: 4rem 1.5rem;
+				padding: 4rem 2rem;
 				text-align: center;
 				color: var(--text-secondary);
 				border-top: 1px solid var(--border-color);
+        font-size: 0.9rem;
 			}
+      @media (max-width: 768px) {
+        .logo { display: none; }
+        .nav-wrapper { justify-content: center; }
+      }
 		</style>
 	</body>
 </html>

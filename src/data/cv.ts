@@ -2,13 +2,17 @@ export const cv = {
   name: "Jing-Jhong Chen",
   zhName: "陳敬忠",
   title: "Ph.D. Student in Biomedical Engineering",
+  researchVision: "Medical AI • Computer Vision • Health Research",
   bio: "I am a direct-entry Ph.D. student at National Yang Ming Chiao Tung University (NYCU) focused on Health Research. My work bridges the gap between clinically-aligned, rigorous algorithm development—such as my proposed DBI-MambaUNet and Size-Aware Focal Tversky Loss for micro-lesion sensitivity—and the stringent demands of actual medical workflows. Rather than stopping at theoretical performance, I build end-to-end systems. My research spans contrast-free brain tumor MRI analysis via knowledge distillation, the development of 3D medical vision-language models (VLM) for automated clinical report generation, hallucination-resistant structured reporting natively integrated with clinical PACS, and leading teams to scale TFDA/FDA-facing oncology systems.",
+  heroText: "Developed multimodal AI frameworks for lung CT and brain tumor imaging interpretation by integrating large language models and vision-language models for structured report generation and clinically grounded decision support in pulmonary nodules, lung cancer screening, pneumonia, chronic obstructive pulmonary disease, pulmonary embolism, and brain tumors, enhancing the actionability of AI outputs in real-world clinical imaging workflows.",
   email: "abc2001925@gmail.com",
   phone: "+886 975306639",
   location: "New Taipei City, Taiwan",
   birthDate: "2001-09-25",
   age: 24,
+  gpa: "4.10 / 4.30",
   profileImage: "/images/profile.jpg",
+  cvPdf: "/cv.pdf",
   website: "https://william75zxc.github.io/",
   researchInterests: [
     "Medical image analysis",
@@ -17,6 +21,38 @@ export const cv = {
     "Large language models",
     "Brain tumor analysis",
     "Standards-based clinical AI integration (DICOM, FHIR)"
+  ],
+  highlights: [
+    {
+      title: "TFDA & U.S. FDA",
+      description: "Contributed to Brain Tumor SaMD operations, securing TFDA approval with U.S. FDA clearance under review.",
+      icon: "ShieldCheck"
+    },
+    {
+      title: "GPA: 4.10 / 4.30",
+      description: "Achieved a near-perfect GPA in NYCU's highly competitive Direct-Entry Ph.D. program, balancing rigorous coursework with pioneering medical AI research.",
+      icon: "GraduationCap"
+    },
+    {
+      title: "2 Medical AI Patents",
+      description: "Granted a Taiwan invention patent for DICOM-driven automated inference; additional Taiwan and U.S. patents pending.",
+      icon: "FileSignature"
+    },
+    {
+      title: "8 Publications",
+      description: "Authored 2 journal papers (including MedIA IF=11.8 under review) and 6 conference papers/presentations (mostly Oral).",
+      icon: "BookOpen"
+    },
+    {
+      title: "AI System Developer",
+      description: "Independently developed Liger MedAI Management Platform; deployed brain tumor AI models at multiple medical centers including Taipei VGH.",
+      icon: "Cpu"
+    },
+    {
+      title: "Research Awards",
+      description: "Received the NSTC Research and Creative Award (2023) and shortlisted for the Smart Innovation Award.",
+      icon: "Trophy"
+    }
   ],
   education: [
     {
@@ -42,129 +78,41 @@ export const cv = {
         {
           title: "Standards-Based Clinical AI Integration for Radiology Workflows",
           period: "2024-2025",
-          description: "Led the development of a vendor-neutral, PACS-native clinical AI system built upon international IHE standards (DICOM, DICOMweb, FHIR). Achieved a mean end-to-end latency of 89.82s and reduced reporting turnaround time from 5.37 to 2.23 days. Received TFDA clearance; FDA review pending."
+          description: "Led development of vendor-neutral, PACS-native clinical AI system built upon international IHE standards (DICOM, FHIR). Integrated brain tumor MRI analysis, contrast-free inference, and structured report generation. Received TFDA clearance; FDA review pending."
         },
         {
           title: "FHIR-Driven Clinical Decision Support and Report Translation",
           period: "2025-Present",
-          description: "Transformed structured AI outputs into interoperable FHIR resources and integrated RAG-enhanced LLMs for clinically contextualized summarization and report translation."
+          description: "Transforming AI outputs into FHIR resources and integrating RAG-enhanced LLMs for clinically contextualized summarization and report translation."
         },
         {
-          title: "Multimodal Clinical Imaging Analysis with LLMs and VLMs",
+          title: "Multimodal Clinical Imaging Analysis",
           period: "2025-Present",
-          description: "Developed multimodal AI frameworks for lung CT and brain tumor imaging interpretation by integrating LLMs and VLMs for structured report generation and clinically grounded decision support."
-        },
-        {
-          title: "Brain Tumor MRI Analysis and Generative Modeling",
-          period: "2024-2025",
-          description: "Developed multimodal MRI-based deep learning frameworks, leveraging GAN and diffusion models to synthesize realistic small tumor lesions, increasing sensitivity by 16 points for 4–6 mm lesions."
-        },
-        {
-          title: "Non-Contrast MRI Translation and Tumor Classification",
-          period: "2024-2025",
-          description: "Leveraged GAN- and diffusion-based models to synthesize T1C MRI from non-contrast T1-weighted inputs for downstream detection and classification."
-        },
-        {
-          title: "Deep Learning for MRI Sequence Classification",
-          period: "2024-2025",
-          description: "Developed deep learning models for automatic classification of multiple MRI sequence types (T1+C, T2, etc.) for fully automated workflows."
+          description: "Developed AI frameworks for lung CT interpretation integrating LLMs and VLMs for structured report generation and decision support."
         }
       ]
     }
   ],
   publications: {
     journals: [
-      {
-        id: "j1",
-        title: "A Standards-Based, PACS-Native AI Integration Architecture for Background Inference in Radiology Reporting Workflows",
-        venue: "Journal of Medical Systems (IF 5.52)",
-        status: "Under Peer Review",
-        authors: ["Jing-Jhong Chen"],
-        year: 2024,
-        role: "1st Author"
-      },
-      {
-        id: "j2",
-        title: "DBI-MambaUNet with Size-Aware Focal Tversky Loss: A Holistic Framework for Multi-Subtype Brain Tumor Micro-Lesion Segmentation in Stereotactic Radiosurgery",
-        venue: "Medical Image Analysis (IF 11.8)",
-        status: "Under Review",
-        authors: ["Jing-Jhong Chen (3rd Author)"],
-        year: 2024,
-        role: "3rd Author"
-      }
+      { id: "j1", title: "A Standards-Based, PACS-Native AI Integration Architecture...", venue: "J Med Syst (IF 5.52)", status: "Under Peer Review", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
+      { id: "j2", title: "DBI-MambaUNet with Size-Aware Focal Tversky Loss...", venue: "MedIA (IF 11.8)", status: "Under Review", year: 2024, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] }
     ],
     conferences: [
-      {
-        id: "c1",
-        title: "A Method for Rapidly Integrating Artificial Intelligence Models into Existing PACS via DICOMweb",
-        venue: "Society for Imaging Informatics in Medicine Annual Meeting (SIIM) 2024",
-        type: "Poster Presentation",
-        authors: ["Jing-Jhong Chen"],
-        year: 2024,
-        role: "1st Author"
-      },
-      {
-        id: "c2",
-        title: "Real-time and Continuous AI Inference Workflow with PACS Integration",
-        venue: "IEEE International Conference on AI, Machine Learning, and Data Science (AMLDS) 2025",
-        type: "Oral Presentation",
-        authors: ["Jing-Jhong Chen"],
-        year: 2025,
-        role: "1st Author",
-        indexed: "IEEE"
-      },
-      {
-        id: "c3",
-        title: "Lightweight 3D IDC-MambaUNet for Multi-Modal MRI Brain Tumor Segmentation Using Multi-Resolution Ensemble",
-        venue: "IEEE International Conference on AI, Machine Learning, and Data Science (AMLDS) 2025",
-        type: "Oral Presentation",
-        authors: ["Jing-Jhong Chen (2nd Author)"],
-        year: 2025,
-        role: "2nd Author",
-        indexed: "IEEE"
-      },
-      {
-        id: "c4",
-        title: "Lesion-Wise False-Positive Reduction for Brain Tumor Candidate Masks in Multi-Modal MRI via Mask-Gated 2.5D Spatiotemporal Classification",
-        venue: "IEEE International Conference on AI, Machine Learning, and Data Science (AMLDS) 2026",
-        type: "Accepted",
-        authors: ["Jing-Jhong Chen (3rd Author)"],
-        year: 2026,
-        role: "3rd Author",
-        indexed: "IEEE"
-      },
-      {
-        id: "c5",
-        title: "Design and Implementation of an Open-Source Integrated Digital Pathology Workflow with DICOM WSI Management and AI-Assisted Analysis",
-        venue: "European Congress on Digital Pathology (ECDP)",
-        type: "Submitted",
-        authors: ["Jing-Jhong Chen (4th Author)"],
-        year: 2025,
-        role: "4th Author"
-      }
+      { id: "c1", title: "Rapidly Integrating AI Models into PACS via DICOMweb", venue: "SIIM 2024", type: "Poster", year: 2024, role: "1st Author", authors: ["Jing-Jhong Chen"] },
+      { id: "c2", title: "Real-time AI Inference Workflow with PACS Integration", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "1st Author", authors: ["Jing-Jhong Chen"] },
+      { id: "c3", title: "Lightweight 3D IDC-MambaUNet...", venue: "AMLDS 2025", type: "Oral", year: 2025, role: "2nd Author", authors: ["Jing-Jhong Chen (2nd Author)"] },
+      { id: "c4", title: "Lesion-Wise FP Reduction for Brain Tumor MRI...", venue: "AMLDS 2026", type: "Accepted", year: 2026, role: "3rd Author", authors: ["Jing-Jhong Chen (3rd Author)"] },
+      { id: "c5", title: "Open-Source Integrated Digital Pathology Workflow", venue: "ECDP 2025", type: "Submitted", year: 2025, role: "4th Author", authors: ["Jing-Jhong Chen (4th Author)"] }
     ]
   },
   patents: [
-    {
-      title: "DICOM Metadata-Driven Decision Platform and Method for Automated Medical Imaging Inference",
-      status: "Taiwan invention patent granted in 2025; U.S. pending"
-    },
-    {
-      title: "Automated Worklist Generation and Multi-Model Inference Work Order Data Structure for Medical Imaging AI",
-      status: "Taiwan and U.S. patent applications pending"
-    }
-  ],
-  honors: [
-    "Co-developed AItewan DeepBT Detector Plus (TFDA medical device clearance; FDA pending)",
-    "Independently developed AItewan Liger MedAI Management Platform (TFDA in progress)",
-    "Shortlisted for Smart Innovation Award with AItewan AI-Assisted Brain Tumor Analysis System",
-    "Research and Creative Award, 2023 NSTC Undergraduate Research Project",
-    "MITW Taiwan Medical Imaging Datathon 2024 (Selected for Track 4 & 8)",
-    "Third Prize, 2021 National Health Technology Innovation and Creativity Competition (MR Glasses Project)"
+    { title: "DICOM Metadata-Driven Decision Platform...", status: "Granted 2025 (Taiwan); U.S. Pending" },
+    { title: "Automated Worklist Generation...", status: "Taiwan and U.S. Pending" }
   ],
   skills: {
     languages: ["Python", "JavaScript", "Node.js", "React.js", "PyTorch"],
-    domains: ["Medical Imaging AI", "Computer Vision", "Deep Learning", "LLMs & VLMs", "3D Segmentation"],
-    standards: ["DICOM", "DICOMweb", "FHIR", "IHE Standards", "Structured Reporting"]
+    domains: ["Medical AI", "Computer Vision", "LLMs & VLMs", "3D Segmentation"],
+    standards: ["DICOM", "DICOMweb", "FHIR", "IHE Standards"]
   }
 };
