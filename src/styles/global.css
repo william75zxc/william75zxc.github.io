@@ -177,6 +177,35 @@ a {
   border-radius: 9999px;
 }
 
+/* Bio Hero Section (Restoring Original Style) */
+.bio-hero {
+  padding: 3rem;
+  border-radius: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.hero-context {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  background: rgba(15, 23, 42, 0.5);
+  border-left: 4px solid var(--accent-teal);
+  border-radius: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.bio-paragraph {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
 .nav-widget-item {
   position: relative;
   width: 40px;

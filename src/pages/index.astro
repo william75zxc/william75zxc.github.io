@@ -25,8 +25,15 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
             <p class="bio-paragraph">
               Focused on translational medical AI, with the goal of developing technologies that can be seamlessly integrated into real clinical workflows. Currently pursuing a Direct Ph.D. in Biomedical Engineering at NYCU.
             </p>
+            <p class="bio-paragraph">
+              Particular emphasis is placed on standards-based clinical integration through DICOM, DICOMweb, and FHIR, enabling automated inference and structured reporting within existing hospital systems.
+            </p>
           </div>
-          <p class="hero-context">{heroText}</p>
+          <div class="hero-context">From Bench to Bedside: Engineering Resilient, Standards-Based, and Trusted AI for Modern Healthcare.</div>
+          <div class="hero-actions">
+            <a href="#research" class="btn btn-primary">View Clinical Systems & Research</a>
+            <a href="/publications" class="btn btn-outline">View Academic CV</a>
+          </div>
         </div>
 
         <div class="highlights-section mt-12">
@@ -38,67 +45,87 @@ const { tagline, bio, heroText, highlights, experience, additionalProjects, publ
         </div>
 			</section>
 
-      <!-- Dashboard Sections - Summary Only -->
-      
-      <section id="research" class="dashboard-section section-spacing">
-        <h2 class="section-title">Featured Research</h2>
-        <div class="summary-list">
-          {experience[0].projects.slice(0, 2).map((proj) => (
+      <!-- Full Research Portfolio -->
+      <section id="research" class="section-spacing">
+        <h2 class="section-title">Ph.D. Research Portfolio</h2>
+        <div class="exp-list">
+          {experience[0].projects.map((proj) => (
             <div class="flagship-card">
-              <div class="flagship-ribbon">Ph.D. Research Flagship</div>
+              <div class="flagship-ribbon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                Ph.D. Research Flagship
+              </div>
               <div class="flagship-body p-6">
                 <h3 class="flagship-title mb-4">{proj.title}</h3>
-                <p class="flagship-description line-clamp-3">{proj.description}</p>
+                <p class="flagship-description">{proj.description}</p>
               </div>
             </div>
           ))}
         </div>
-        <a href="/experience" class="view-more-btn">Explore Full Research Portfolio (6 Projects) →</a>
       </section>
 
-      <section id="projects" class="dashboard-section section-spacing">
+      <!-- Full Clinical Systems -->
+      <section id="projects" class="section-spacing">
         <h2 class="section-title">Clinical System Deployment</h2>
-        <div class="summary-list">
-          {additionalProjects.slice(0, 2).map((proj) => (
+        <div class="exp-list">
+          {additionalProjects.map((proj) => (
             <div class="flagship-card">
-              <div class="flagship-ribbon">Clinical Collaborative Project</div>
+              <div class="flagship-ribbon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2l-.2.3ZM7 2a3 3 0 1 0-3 3"></path><path d="M5.9 4.7a3 3 0 1 0 3 3"></path><path d="M11.8 5.2V10a8 8 0 0 1-8 8"></path></svg>
+                Clinical Collaborative Project
+              </div>
               <div class="flagship-body p-6">
                 <h3 class="flagship-title mb-4">{proj.title}</h3>
-                <p class="flagship-description line-clamp-3">{proj.description}</p>
+                <p class="flagship-description">{proj.description}</p>
               </div>
             </div>
           ))}
         </div>
-        <a href="/projects" class="view-more-btn">View All Clinical Implementations (7+ Projects) →</a>
       </section>
 
       <div class="two-column-grid section-spacing">
         <section id="honors" class="honors-summary">
-          <h2 class="section-title">Key Distinctions</h2>
+          <h2 class="section-title">Honors & Patents</h2>
           <div class="list">
-             <div class="glass p-6 border-l-4 border-gold">
-               <div class="badge-honor">National Level Honor</div>
-               <p class="text-gold font-bold">NSTC Research & Creative Award (2023)</p>
-             </div>
-             <div class="glass p-6 border-l-4 border-teal">
-               <div class="badge-honor">Medical Device Clearance</div>
-               <p class="text-teal font-bold">DeepBT Detector Plus (TFDA Cleared)</p>
+             {honors.map((group) => (
+                <div class="glass p-6 mb-4">
+                  <h3 class="text-primary font-bold mb-3">{group.category}</h3>
+                  <ul class="honor-items">
+                    {group.items.map((item) => (
+                      <li class={item.includes("National") || item.includes("NSTC") ? "text-gold font-bold mb-2" : "mb-2 text-secondary"}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+             ))}
+             <div class="glass p-6 mb-4">
+               <h3 class="text-primary font-bold mb-3">Patents</h3>
+               <ul class="honor-items">
+                 {cv.patents.map((item) => (
+                   <li class="mb-2 text-secondary">• {item.title} <span class="text-teal">({item.status})</span></li>
+                 ))}
+               </ul>
              </div>
           </div>
-          <a href="/honors" class="view-more-btn mt-6">View Honors, Patents & Service →</a>
         </section>
 
         <section class="publications-summary">
-          <h2 class="section-title">Latest Publications</h2>
+          <h2 class="section-title">Publications & Presentations</h2>
           <div class="list">
-            {publications.journals.slice(0, 1).map((pub) => (
-              <div class="summary-card glass">
+            <h3 class="text-primary font-bold mb-3">Journal Papers</h3>
+            {publications.journals.map((pub) => (
+              <div class="summary-card glass mb-4">
                 <h3 class="text-primary text-sm font-bold">{pub.title}</h3>
-                <p class="text-sky text-xs mt-2">{pub.venue} • {pub.status}</p>
+                <p class="text-sky text-xs mt-1">{pub.venue} • {pub.status} • {pub.role}</p>
+              </div>
+            ))}
+            <h3 class="text-primary font-bold mt-6 mb-3">Conference Papers</h3>
+            {publications.conferences.map((pub) => (
+              <div class="summary-card glass mb-4">
+                <h3 class="text-primary text-sm font-bold">{pub.title}</h3>
+                <p class="text-sky text-xs mt-1">{pub.venue} • {pub.type} • {pub.role}</p>
               </div>
             ))}
           </div>
-          <a href="/publications" class="view-more-btn mt-6">View All Papers & Presentations →</a>
         </section>
       </div>
 		</main>

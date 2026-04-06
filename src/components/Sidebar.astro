@@ -1,50 +1,21 @@
 ---
 import { cv } from '../data/cv';
 
-const { name, zhName, title, researchVision, email, phone, location, birthDate, age, profileImage, cvPdf } = cv;
+const { name, title, researchVision, email, phone, location, birthDate, age, profileImage, cvPdf } = cv;
 ---
 
 <aside class="sidebar-wrapper">
 	<div class="sidebar glass sticky-sidebar">
 		<div class="profile-section">
-			<img src={profileImage} alt={name} class="avatar" />
+      <div class="avatar-container">
+			  <img src={profileImage} alt={name} class="avatar" />
+      </div>
 			<div class="name-section">
-				<h1>{name}</h1>
-				<p class="zh-name">{zhName}</p>
+				<h1 class="name">{name}</h1>
 				<p class="title">{title}</p>
+        <p class="vision">{researchVision}</p>
 			</div>
 		</div>
-
-    <nav class="sidebar-nav">
-      <a href="#bio" class="nav-anchor">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-        Biography
-      </a>
-      <a href="#education" class="nav-anchor">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-        Education
-      </a>
-      <a href="#research" class="nav-anchor">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
-        Research Portfolio
-      </a>
-      <a href="#projects" class="nav-anchor">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-        Clinical Systems
-      </a>
-      <a href="#publications" class="nav-anchor">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-        Selected Publications
-      </a>
-      <a href="#honors" class="nav-anchor">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-        Honors & Awards
-      </a>
-      <a href="#skills" class="nav-anchor">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-        Technical Skills
-      </a>
-    </nav>
 
 		<div class="contact-links">
       <div class="contact-item">
@@ -75,27 +46,29 @@ const { name, zhName, title, researchVision, email, phone, location, birthDate, 
 <style>
   .sidebar-wrapper {
     position: relative;
+    height: 100%;
   }
-  .sticky {
+  .sticky-sidebar {
     position: sticky;
     top: 2rem;
   }
   .sidebar {
-    padding: 2.5rem 1.5rem;
+    padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 3rem;
+    border-radius: 1.5rem;
   }
   .profile-section {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   .avatar-container {
-    width: 154px;
-    height: 154px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     padding: 4px;
     background: var(--accent-gradient);
@@ -110,31 +83,34 @@ const { name, zhName, title, researchVision, email, phone, location, birthDate, 
     border: 4px solid var(--bg-color);
   }
   .name {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
   }
   .title {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    margin-bottom: 1rem;
   }
   .vision {
     font-size: 0.85rem;
+    line-height: 1.5;
     color: var(--accent-sky);
     font-weight: 600;
   }
-  .contact-list {
+  .contact-links {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
   .contact-item {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.3rem;
   }
   .contact-item .label {
     font-size: 0.65rem;
@@ -144,19 +120,20 @@ const { name, zhName, title, researchVision, email, phone, location, birthDate, 
   }
   .contact-item .value {
     font-size: 0.9rem;
-    font-weight: 500;
-    word-break: break-all;
+    font-weight: 600;
+    word-break: break-word;
   }
   .sidebar-actions {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    margin-top: auto;
   }
   .full-width {
     width: 100%;
   }
 
   @media (max-width: 1024px) {
-    .sticky { position: relative; top: 0; }
+    .sticky-sidebar { position: relative; top: 0; }
   }
 </style>
