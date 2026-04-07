@@ -98,13 +98,20 @@ const { tagline, bio, heroText, highlights, researchVision, experience, addition
         <div class="card-grid">
           {publications.journals.map((pub) => (
             <div class="award-card glass" style="border-left: 4px solid var(--accent-sky); margin-bottom: 0;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
-                <div>
-                  <h3 class="paper-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4;">{pub.title}</h3>
-                  <p class="paper-meta" style="font-size: 0.9rem; color: var(--accent-sky); font-weight: 600; margin-top: 0.5rem;">{pub.venue} • {pub.status}</p>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+                  <div style="flex: 1;">
+                    <h3 class="paper-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4;">{pub.title}</h3>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem; flex-wrap: wrap;">
+                      <span style="font-size: 0.9rem; color: var(--accent-sky); font-weight: 600;">{pub.venue}</span>
+                      <span class="badge" style={pub.status.includes('Review') 
+                        ? "background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 1rem; font-weight: 700; text-transform: uppercase;" 
+                        : "background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 1rem; font-weight: 700; text-transform: uppercase;"}>
+                        {pub.status}
+                      </span>
+                    </div>
+                  </div>
+                  <span class="badge" style="background: rgba(56, 189, 248, 0.1); color: var(--accent-sky); border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; text-transform: uppercase;">Journal</span>
                 </div>
-                <span class="badge" style="background: rgba(56, 189, 248, 0.1); color: var(--accent-sky); border: 1px solid rgba(56, 189, 248, 0.2); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; text-transform: uppercase;">Journal</span>
-              </div>
             </div>
           ))}
         </div>
@@ -114,11 +121,16 @@ const { tagline, bio, heroText, highlights, researchVision, experience, addition
           {publications.conferences.map((pub) => (
             <div class="award-card glass" style={`border-left: 4px solid ${pub.type.includes('Oral') ? 'var(--accent-gold)' : pub.type.includes('Poster') ? '#c084fc' : 'rgba(255,255,255,0.2)'}; margin-bottom: 0;`}>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
-                <div>
+                <div style="flex: 1;">
                   <h3 class="paper-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); line-height: 1.4;">{pub.title}</h3>
-                  <p class="paper-meta" style={`font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; color: ${pub.type.includes('Oral') ? 'var(--accent-gold)' : 'var(--text-secondary)'};`}>
-                    {pub.venue} • {pub.type}
-                  </p>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem; flex-wrap: wrap;">
+                    <span style={`font-size: 0.9rem; font-weight: 600; color: ${pub.type.includes('Oral') ? 'var(--accent-gold)' : 'var(--text-secondary)'};`}>
+                      {pub.venue}
+                    </span>
+                    <span class="badge" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.2); font-size: 0.65rem; padding: 0.15rem 0.6rem; border-radius: 1rem; font-weight: 700; text-transform: uppercase;">
+                      {pub.type}
+                    </span>
+                  </div>
                 </div>
                 {pub.type.includes('Oral') ? (
                   <span class="badge" style="background: rgba(250, 204, 21, 0.15); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.3); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 1rem; font-weight: 800; text-transform: uppercase;">Oral</span>
@@ -181,7 +193,11 @@ const { tagline, bio, heroText, highlights, researchVision, experience, addition
                       </div>
                       <div class="award-content">
                         <h3 class="award-title">{item.title}</h3>
-                        <p class="paper-meta">{item.status}</p>
+                        <div style="margin-top: 0.75rem;">
+                          <span class="badge" style="background: rgba(13, 148, 136, 0.1); color: var(--accent-teal); border: 1px solid rgba(13, 148, 136, 0.2); font-size: 0.65rem; padding: 0.2rem 0.75rem; border-radius: 1rem; font-weight: 700;">
+                            {item.status}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}
