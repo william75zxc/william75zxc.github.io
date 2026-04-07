@@ -163,7 +163,7 @@ export const cv = {
   honors: [
     {
       category: "Awards", items: [
-        "Research and Creative Award, 2023 NSTC Undergraduate Research Project: Cloud-Based BI-RADS Classification Model for Breast Ultrasound in Primary Care Clinics.",
+        "2023年國科會大專學生研究計畫研究創作獎(全國性研究獎)",
         "Third Prize, Project Competition, National Taipei University of Nursing and Health Sciences.",
         "Third Prize, Smart Technology Division, 2021 National Health Technology Innovation and Creativity Competition (MR Glasses Project).",
         "Shortlisted for the Smart Innovation Award with the “AItewan” AI-Assisted Brain Tumor Analysis System."
